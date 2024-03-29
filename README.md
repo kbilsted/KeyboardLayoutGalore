@@ -2,11 +2,28 @@
 
 This site tries to encompas notes on how to choose and design  keyboard layouts. A large part of modern layouts is doing *layers*, *combos*, *macros*, tap, tap-hold etc. 
 
+Contributions welcome :-)
 
 
-# 1. Layouts are more alike thank you think! 
 
-When first being to different keyboard layouts one is quickly overwhelmed by the  great variety. However, upon further scruitiny, the *similarities* of the homerow is surprising! Let's have a look at some keyboards layouts:
+# How to learn a new layout
+
+Practice using a type mentor. 
+* https://monkeytype.com/ is really the place to be. There are a ton of videos on youtube - go watch! It can do *everything*.
+
+Tips for monkey type
+  * `CTRL-Shift-P` -> *Keymap layout*: **change keyboard layout**
+  * `CTRL-Shift-P` -> *keymap mode* -> *next*: **shows the keyboard**
+  * `CTRL-Shift-P` -> *Custom text* -> *word filter*: **Reduce words to letters on the home row**
+
+
+
+
+
+# Layouts are more alike thank you think! 
+
+When first being to different keyboard layouts one is quickly overwhelmed by the  great variety. However, upon further scruitiny, the *similarities* of the homerow is surprising! Let's have a look at some keyboards layouts (no particular priority other than the most known QWERTY, DVORAK, COLEMAK).
+
 
 
 ### Sorted homerow of selected layouts
