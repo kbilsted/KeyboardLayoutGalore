@@ -7,15 +7,7 @@ Contributions welcome :-)
 
 
 # How to learn a new layout
-
-Practice using a type mentor. 
-* https://monkeytype.com/ is really the place to be. There are a ton of videos on youtube - go watch! It can do *everything*.
-
-Tips for monkey type
-  * `CTRL-Shift-P` -> *Keymap layout*: **change keyboard layout**
-  * `CTRL-Shift-P` -> *keymap mode* -> *next*: **shows the keyboard**
-  * `CTRL-Shift-P` -> *Custom text* -> *word filter*: **Reduce words to letters on the home row**
-
+See [HowToBestLearnANewLayout.md](HowToBestLearnANewLayout.md)
 
 
 
@@ -85,6 +77,14 @@ Since the real estate of the home row is king, we should expect the most frequen
 |M|	2.4%	|
 
 
+### Letter Frequency in the English Language
+ 
+    e t a o i n s r h l d c u m f p g w y b v k x j q z
+
+ 
+### Letter Frequency in the Oxford Dictionary
+ 
+    e a r i o t n s l c u d p m h g b f y w k v x z j q
 
 
 
@@ -133,7 +133,26 @@ Finally AI models auto complete more and more code these days.. We must advice t
 
 
 
+For an actual case stydy see [CSharp code analysis vs keyloging.md](CSharp%20code%20analysis%20vs%20keyloging.md)
+
+
+
 # Layouts notes
+
+## Angle mod
+source: https://github.com/Apsu/APT
+On traditional row-stagger keyboards, the bottom row keys on the left side can be difficult to press with the same fingers used for the home/top row in the same columns. One workaround popularized for the Colemak layouts is known as an Angle Mod.
+
+This mod rotates the first 5 letters in the bottom row left by 1 spot, and the leftmost letter is wrapped around to the 5th spot (QWERTY b spot). In conjunction with the letter shifts, the intention is that you will also change the fingers you use, so the SFB/column relationships are maintained.
+
+
+
+## visualisation tools
+
+* design keyboard layouts with layers https://keymap-drawer.streamlit.app/
+* design keyboard layouts with nice graphics http://www.keyboard-layout-editor.com/
+
+
 
 
 ## Dvorak
@@ -152,17 +171,17 @@ Next to QWERTY it is the most well known layout.
 Source: https://github.com/Apsu/Canary
 
 ```
-w l y p k z x o u ; [ ] \
- c r s t b f n e i a '
-  j v d g q m h / , .
+w l y p k   z x o u ; [ ] \
+ c r s t b   f n e i a '
+  j v d g q   m h / , .
 ```
 
 ortha
 
 ```
-w l y p b z f o u '
-c r s t g m n e i a
-q j v d k x h / , . 
+    w   l   y   p       b   z   f   o   u   '
+    c   r   s   t       g   m   n   e   i   a
+    q   j   v   d       k   x   h   /   ,   . 
 ```
 
 ## Engram 
@@ -181,6 +200,22 @@ Engram is fairly similar to Dvorak making the transition from one to the other f
    A   E   I             H   T   N   S
    J   K   X             M
 ```
+
+
+## APTv3
+https://github.com/Apsu/APT
+
+    w g d f b q l u o y
+     r s t h k j n e a i ;
+       c m p v x z , . ' /
+
+and without the angle mod
+
+    w  g  d  f  b   q  l  u  o  y
+    r  s  t  h  k   j  n  e  a  i  ;
+    x  c  m  p  v   z  ,  .  '  /
+
+
 
 
 
