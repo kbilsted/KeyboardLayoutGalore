@@ -6,11 +6,13 @@ Contributions welcome :-)
 
 
 
-# How to learn a new layout
-See [HowToBestLearnANewLayout.md](HowToBestLearnANewLayout.md)
+
+## How to learn a new layout
+See [How To Best Learn A New Layout](HowToBestLearnANewLayout.md)
 
 
-
+## How to install keyboard layouts with simple software
+See [Create A Keyboard Layout With Software](keymapping/CreateKeyboardLayoutsWithSoftware.md)
 
 # Layouts are more alike thank you think! 
 
