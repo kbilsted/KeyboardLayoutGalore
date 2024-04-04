@@ -18,7 +18,7 @@ Conclusions so far:
 I wrote a small program to do simple frequency analysis of `.cs` files. While I coded, I used a keylogger to track the actual keyboard usage (see https://github.com/kbilsted/KeyboordUsage)
 
 
-For reference the code under analysis can be found here https://github.com/kbilsted/KeyboardLayoutGalore/blob/master/CodeFrequencyAnalyzer/CodeFrequencyAnalyzer/Program.cs . Notice that this reflects an end result - not the whole process of doing and re-doing parts of the code, changing datastructures etc. 
+For reference the code under analysis can be found here [CodeFrequencyAnalyzer](tools/CodeFrequencyAnalyzer/Program.cs). Notice that this reflects an end result - not the whole process of doing and re-doing parts of the code, changing datastructures etc. 
 
 Also note that this was a small coding session. 
 

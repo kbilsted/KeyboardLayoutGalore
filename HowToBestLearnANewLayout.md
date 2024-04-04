@@ -24,8 +24,8 @@ General advice
 
 ## Free tutors using graphical hands
 
-* https://www.typing.com/ - traditional exercises starting with `F-J` then `R-U`. Lots of stars, points to motivate kids.
-* https://www.keybr.com/  - using AI to adapt to the users performance. But be prepared to be slapped in the face with AI encuoragement, and I quote "Learning rate:+0.3wpm/lesson 🙂︎".
+* https://www.typing.com/ - traditional exercises starting with `F-J` then `R-U`. Lots of badgets, motivational stars, XP, small information videos, etc to keep you motivated. Already at lesson 2 keys  outside the homerow is included.
+* https://www.keybr.com/  - using AI to adapt to the users performance. Sounds great, but my experience has been the AI keeps droning on the homerow letters forever and ever. 
 * ...
   
 

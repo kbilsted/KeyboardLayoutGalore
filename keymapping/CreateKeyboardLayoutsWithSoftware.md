@@ -24,3 +24,5 @@ https://github.com/houmain/keymapper free, Windows/Linux/Mac
 
 A simple and lightweight keymapper with a clean configuration. Allows remapping of all keys including multimedia and function keys. Configurations are found here [houmain/keymapper](configurations/houmain-keymapper/)
 
+
+I've made a simple layout->config compiler that given a keyboard layout can spit out keymapper `.conf` files. [here](../tools/GenericConfigurationBuilder/GenericConfigurationBuilder/Program.cs)   

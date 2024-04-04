@@ -15,7 +15,8 @@ var ignoreAllSettings = settings with
     IgnoreNewlineAndSpace = true,
 };
 var analyzer = new CodeFrequencyAnalyzer();
-var path = @"C:\src\";
+//var path = @"C:\src\";
+var path = @"C:\src\KeyboardLayoutGalore\CodeFrequencyAnalyzer\CodeFrequencyAnalyzer\";
 
 var allcode = analyzer.AnalyzeFiles(path, "*.cs", settings);
 var ignoredSomeCode = analyzer.AnalyzeFiles(path, "*.cs", ignoreSomeSettings);
