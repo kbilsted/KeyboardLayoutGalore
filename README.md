@@ -150,12 +150,13 @@ For an actual case stydy see [CSharp code analysis vs keyloging.md](CSharp%20cod
 
 
 # Layouts notes
-
-[keyboard layouts notes](keyboard-laybouts.md)
+a list of notes on keyboard layouts very limited [keyboard layouts notes](keyboard-layouts.md)
 
 ## Keyboard visualisation tools
 
-* design keyboard layouts with layers https://keymap-drawer.streamlit.app/
+* design keyboard layouts with layers 
+  * https://keymap-drawer.streamlit.app/
+  * https://jaroslaw-weber.github.io/keyfab/
 * design keyboard layouts with nice graphics http://www.keyboard-layout-editor.com/
 
 
@@ -168,12 +169,10 @@ A very easy to understand and "low tech" approach is to remap the ALT keys as sh
  # Appendix
 
 
-## Various keyboard tricks
-[Keyboards Tips.md](keyboards-tips.md)
 
 
 ## Inspiring videos
-
+* Gentle introduction to keyboard layout design principles (frequency, rolls, etc) and then how he designed a one-handed keyboard: https://www.youtube.com/watch?v=xDQXokCON-w&ab_channel=sandsquare
 * https://www.youtube.com/watch?v=McHurKmk-rQ&t=22s
   
 
@@ -183,3 +182,5 @@ A very easy to understand and "low tech" approach is to remap the ALT keys as sh
  
 
 
+## Various keyboard tricks
+[Keyboards Tips.md](keyboards-tips.md)

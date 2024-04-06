@@ -126,6 +126,12 @@ Similarly for FSC column
 
 
 This is not time based.
+
+It only declares FC as a bigram, you don't declare FA, AC or anything else. You can type as many vowels + y between the declared FC pair while still keeping the output of the bigram key to C, so you can type FAC, FOC, FEC, FEEC etc.. Which keys are allowed between the bigram letters is defined in the switch case in is_ignore_letter function (this has the A you are looking for).
+
+To be more clear, after pressing F, the next bigram key press will output C. But you can type any number of vowels + y after F and the bigram key will still output C. When you type F it enters the "skip_bigram_mode" which sets the output of the bigram key to C. Iine 114 tells it to not disable the bigram mode when the "ignore letters" are typed.
+
+
 I've been using it in addition to adaptive keys successfully and just wanted to share incase anyone else finds it useful.
 
 https://github.com/anantoghosh/My-QMK/blob/ananto-lily58/keyboards/lily58/rev1/keymaps/vial/skip_bigrams.c
