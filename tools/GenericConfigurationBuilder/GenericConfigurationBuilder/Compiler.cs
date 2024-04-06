@@ -19,25 +19,31 @@ public class Compiler
           Space          Enter"
        .Split([" ", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
 
-    public static readonly string[] QWERTY_6_grid_2_thumb =
+    public static readonly string[] QWERTY_5by6_grid_2_thumb =
         @"Q W E R T      Y U I      O       P         BracketLeft
           A S D F G      H J K      L       Semicolon Semicolon 
           Z X C V B      N M Comma  Period  Slash
           Space          Enter"
         .Split([" ", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
 
+    public static readonly string[] QWERTY_105_6by5_grid_2_thumb =
+        @"Q W E R T Y    U I  O  P         BracketLeft
+          A S D F G H    J K  L  Semicolon Semicolon 
+IntlBackslash Z X C V    B N  M  Comma     Period  Slash  
+          Space          Enter"
+      .Split([" ", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
 
-    public static void CompileToFile(string keyboard, string[] targetBoard, K[] combos, Action<K[]> Writer)
+    public static void CompileToFile(string doc, string keyboard, string[] targetBoard, K[] combos, Action<string, K[]> Writer)
     {
         var k = KeyboardParser(keyboard, targetBoard);
-        Writer(combos.Concat(k).ToArray());
+        Writer(doc, combos.Concat(k).ToArray());
     }
 
     public static K[] KeyboardParser(string keyboard, string[] targetBoard)
     {
         IEnumerable<Token> Parser(string keyboardLayout)
         {
-            keyboardLayout = keyboardLayout + " "; // ensure blank EOF
+            keyboardLayout = keyboardLayout + " "; // ensure no need for EOF check when substring
             for (int i = 0; i < keyboardLayout.Length; i++)
             {
                 char c = keyboardLayout[i];
@@ -50,13 +56,23 @@ public class Compiler
                     continue;
                 }
 
+                if (c is '\\')
+                {
+                    int j = i + 1;
+                    while (j < keyboardLayout.Length && char.IsLetter(keyboardLayout[j]))
+                        j++;
+                    yield return new Token(keyboard.Substring(i, j - i), null, TokenKind.Token);
+                    i = j;
+                    continue;
+                }
+
                 if (char.IsLetter(c))
                 {
                     int j = i + 1;
                     while (j < keyboardLayout.Length && char.IsLetter(keyboardLayout[j]))
                         j++;
-                    i = j - 1;
                     yield return new Token(keyboard.Substring(i, j - i).ToUpper(), null, TokenKind.Token);
+                    i = j;
                     continue;
                 }
 
