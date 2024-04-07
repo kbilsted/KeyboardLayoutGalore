@@ -182,5 +182,33 @@ A very easy to understand and "low tech" approach is to remap the ALT keys as sh
  
 
 
+## Designing a programmers keyboard layout for programmers
+
+
+from: http://xahlee.info/kbd/semicolon_vs_apostrophe_frequency_in_computer_languages.html 
+
+
+Here is a table of their frequency.
+
+Semicolon and Apostrophe Frequency in Computer Languages
+
+    lang	semicolon ;	  apostrophe '
+    Java	      8.0%	  0.5%
+    C	          6.9%	  0.8%
+    C++	        3.5%	  0.2%
+    Python	    0.2%    10.6%
+    Ruby	      0.3%    4.4%
+    Bash	      1.1%    6.9%
+    PHP	        5.1%	   .5%
+    Perl	     4.9%     6.1%
+    JavaScript	5.2%	  6.8%
+If you code {C, C++, Java}, then semicolon is far more frequent.
+
+* If you code in {Python, Ruby, Bash}, apostrophe is  ar more frequent.
+* If you code in {PHP, Perl, JavaScript}, apostrophe  s still more frequent.
+* in English, the semicolon is almost never used, apostrophe is used often. (e.g. it's, that's, 'single quotes')
+
+
+
 ## Various keyboard tricks
 [Keyboards Tips.md](keyboards-tips.md)
