@@ -68,6 +68,39 @@ Also notice the choice of infrequent letters:
 |Three Layout|O|H|E|A|I|D|R|T|N|S| |
 
 
+### Visualisations
+**qwerty**
+<table><tr>
+<td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="green.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="gray.png"></td></tr><tr><td><img src="green.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td></tr></table>
+
+
+**dvorak**
+<table><tr>
+<td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="gray.png"></td><td><img src="green.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td></tr></table>
+
+
+**Colemak**
+<table><tr>
+<td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="green.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="green.png"></td></tr><tr><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td></tr></table>
+
+
+**hands down**
+<table><tr>
+<td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="green.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td></tr></table>
+
+
+**Engram**
+<table><tr>
+<td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="green.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="gray.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="darkgray.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="blue.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td></tr></table>
+
+
+**canary**
+<table><tr>
+<td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="green.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="green.png"></td><td><img src="darkgray.png"></td></tr><tr><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="gray.png"></td><td><img src="darkgray.png"></td><td><img src="gray.png"></td><td><img src="blue.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td><td><img src="darkgray.png"></td></tr></table>
+
+
+<!-- end visualisation  -->
+
 ### English Letter frequencies
 Since the real estate of the home row is king, we should expect the most frequently used keys here. Of course there are considerations such as finger travel, same finger usage etc  never the less it is interesting to compare with the letter frequencies of english. (source: https://en.wikipedia.org/wiki/Letter_frequency).
 
@@ -180,6 +213,37 @@ A very easy to understand and "low tech" approach is to remap the ALT keys as sh
 * https://www.jonashietala.se/blog/2023/11/02/i_designed_my_own_keyboard_layout_was_it_worth_it/
 * https://docs.google.com/document/d/1_a5Nzbkwyk1o0bvTctZrtgsee9jSP-6I0q3A0_9Mzm0/edit Go to document for understanding keyboard metrics
  
+
+# tooling 
+Keyboard Layout Files Creator https://github.com/39aldo39/klfc
+
+
+## Designing a programmers keyboard layout for programmers
+
+
+from: http://xahlee.info/kbd/semicolon_vs_apostrophe_frequency_in_computer_languages.html 
+
+
+Here is a table of their frequency.
+
+Semicolon and Apostrophe Frequency in Computer Languages
+
+    lang	semicolon ;	  apostrophe '
+    Java	      8.0%	  0.5%
+    C	          6.9%	  0.8%
+    C++	        3.5%	  0.2%
+    Python	    0.2%    10.6%
+    Ruby	      0.3%    4.4%
+    Bash	      1.1%    6.9%
+    PHP	        5.1%	   .5%
+    Perl	     4.9%     6.1%
+    JavaScript	5.2%	  6.8%
+If you code {C, C++, Java}, then semicolon is far more frequent.
+
+* If you code in {Python, Ruby, Bash}, apostrophe is  ar more frequent.
+* If you code in {PHP, Perl, JavaScript}, apostrophe  s still more frequent.
+* in English, the semicolon is almost never used, apostrophe is used often. (e.g. it's, that's, 'single quotes')
+
 
 
 ## Various keyboard tricks
