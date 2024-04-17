@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using System.Net.WebSockets;
+using System.Runtime.InteropServices;
 
 namespace KeyboardAnalyzer;
 
@@ -7,64 +7,112 @@ namespace KeyboardAnalyzer;
 public class Program
 {
     public static void Main(string[] args)
+
     {
+        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 
         Keyboards();
 
         //Bigrams();
+        //Monograms();
     }
 
     static void Bigrams()
     {
+        string reverse(string s) => string.Join("", s.Reverse().ToArray());
 
-        var dictionary = new Corpus().GetBigrams(
-        File.ReadAllText(@"C:\Users\kbils\Desktop\iweb-corpus-samples-cleaned.txt")
-        //File.ReadAllText(@"C:\Users\kbils\Desktop\filtered_full")
-        .ToLower());
+        string corpus = File.ReadAllText(@"C:\Users\kbils\Desktop\iweb-corpus-samples-cleaned.txt"
+        //File.ReadAllText(@"C:\Users\kbils\Desktop\filtered_full"
+        )
+                      .ToLower()
+          //.Replace("the", "t")
+          ;
+        var dictionary = new Corpus().GetBigrams(corpus);
+
+        var mirrorFreq = new Dictionary<string, decimal>();
+        foreach (var item in dictionary)
+        {
+            var mirrors = reverse(item.Key);
+            if (mirrorFreq.ContainsKey(item.Key))
+            {
+                mirrorFreq[item.Key] = mirrorFreq[item.Key] + item.Value.Freq;
+                mirrorFreq[mirrors] = mirrorFreq[mirrors] + item.Value.Freq;
+            }
+            else
+            {
+                mirrorFreq[item.Key] = item.Value.Freq;
+                mirrorFreq[mirrors] = item.Value.Freq;
+            }
+        }
+
+        var summedBigrams = dictionary.Select(x => new Bigram(x.Key, x.Value.Freq, mirrorFreq[x.Key]))
+            .OrderByDescending(x => x.FrequencyWithMirror)
+            .Take(400)
+            .Select(x => $"new (\"{x.Value}\", {x.Frequency.ToString("0.000")}M, {x.FrequencyWithMirror.ToString("0.00")}M),");
+
         Console.WriteLine("bigrams " + dictionary.Count());
-        string @out = string.Join("\n", dictionary
-                        .OrderByDescending(x => x.Value.Count)
-                        .Take(300)
-                        .Select(x => $"new Bigram(\"{x.Key}\", {x.Value.Freq.ToString("0.000")}M),")
-                    )
-                    .Replace("0,", "0.")
-                    .Replace("1,", "1.")
-                    .Replace("2,", "2.")
-                    .Replace("3,", "3.");
-        Console.WriteLine(@out);
-
-        Console.ReadLine();
+        Console.WriteLine(string.Join("\n", summedBigrams));
 
     }
 
+    static void Monograms()
+    {
+        string corpus = File.ReadAllText(@"C:\Users\kbils\Desktop\iweb-corpus-samples-cleaned.txt"
+      //File.ReadAllText(@"C:\Users\kbils\Desktop\filtered_full"
+      )
+          .ToLower()
+          //.Replace("the", "t")
+          ;
+        var dictionary = new Corpus().GetMonoGrams(corpus);
+
+        var output = dictionary
+                .OrderByDescending(x => x.Value.Freq)
+                .Take(400)
+                .Select(x => $"{x.Key}: {x.Value.Freq.ToString("0.000")}");
+
+        Console.WriteLine(string.Join("\n", output));
+
+    }
+
+    const decimal DirectNeighbourWeight = 1.5m;
+
     public static void Keyboards()
     {
+
         Stats res;
         Bigram[] bigrams = new Corpus().ReadCorpus();
 
-        //Console.WriteLine("qwerty");
-        //res = Analyze(new Keyboard(Keyboard.QWERTY), bigrams);
-        //Console.WriteLine(res);
 
-        //Console.WriteLine("\nhandsdown");
-        //res = Analyze(new Keyboard(Keyboard.Handsdown), bigrams);
-        //Console.WriteLine(res);
+        void print(string name, string keyboard)
+        {
+            Console.WriteLine("--------");
+            Console.WriteLine("--------");
+            Console.WriteLine("--------");
+            Console.WriteLine("\n" + name);
+            res = Analyze(new Keyboard(keyboard), bigrams);
+            Console.WriteLine(res);
+        }
 
-        //Console.WriteLine("\none_trick_roll");
-        //res = Analyze(new Keyboard(Keyboard.one_trick_roll), bigrams);
-        //Console.WriteLine(res);
+        //Console.WriteLine("qwerty"); res = Analyze(new Keyboard(Keyboard.QWERTY), bigrams); Console.WriteLine(res);
 
-        //Console.WriteLine("\npine v4");
-        //res = Analyze(new Keyboard(Keyboard.Pine_v4), bigrams);
-        //Console.WriteLine(res);
+        //Console.WriteLine("\nhandsdown"); res = Analyze(new Keyboard(Keyboard.Handsdown), bigrams); Console.WriteLine(res);
 
-        Console.WriteLine("\nroller-latest");
-        res = Analyze(new Keyboard(Keyboard.RollerCoasterLatest), bigrams);
-        Console.WriteLine(res);
+        //Console.WriteLine("\none_trick_roll"); res = Analyze(new Keyboard(Keyboard.one_trick_roll), bigrams); Console.WriteLine(res);
 
-        Console.WriteLine("\nroller");
-        res = Analyze(new Keyboard(Keyboard.RollerCoaster), bigrams);
-        Console.WriteLine(res);
+        //Console.WriteLine("\npine v4"); res = Analyze(new Keyboard(Keyboard.Pine_v4), bigrams); Console.WriteLine(res);
+
+        //Console.WriteLine("\ngraphite"); res = Analyze(new Keyboard(Keyboard.Graphite), bigrams); Console.WriteLine(res);
+
+
+        print("roller", Keyboard.RollerCoaster);
+        print("roller-latest", Keyboard.RollerCoasterLatest);
+        print("roller1", Keyboard.RollerCoaster1);
+        print("roller2", Keyboard.RollerCoaster2);
+        print("roller3", Keyboard.RollerCoaster3);
+        print("roller4", Keyboard.RollerCoaster4);
+        print("roller5", Keyboard.RollerCoaster5);
+        print("roller6", Keyboard.RollerCoaster6);
+
     }
 
 
@@ -80,12 +128,13 @@ public class Program
             var keys = keyboard.Get(bigram.Value);
 
             bool SFB = ((keys[0].col == 3 || keys[0].col == 4) && (keys[1].col == 3 || keys[1].col == 4))
-                || ((keys[0].col == 5 || keys[0].col == 6) && (keys[1].col == 5 || keys[1].col == 6));
+                || ((keys[0].col == 5 || keys[0].col == 6) && (keys[1].col == 5 || keys[1].col == 6))
+                || ((keys[0].col == 9 || keys[0].col == 10) && (keys[1].col == 9 || keys[1].col == 10));
 
             if (keyboard.ContainsSameRowSequence(keys))
             {
                 bool isNeighbour = (Math.Abs(keys[0].col - keys[1].col) == 1);
-                decimal value = bigram.Frequency * (isNeighbour ? 1.5m : 1.0M);
+                decimal value = bigram.Frequency * (isNeighbour ? DirectNeighbourWeight : 1.0M);
                 result.Value += value;
                 matches++;
 
@@ -97,7 +146,7 @@ public class Program
             {
                 result.SFB += bigram.Frequency;
                 if (!printed)
-                    Console.Write($"{bigram.Value} !!!!     ");
+                    Console.Write($"{bigram.Value} {bigram.Frequency}!! ");
                 printed = true;
             }
 
@@ -106,7 +155,7 @@ public class Program
             {
                 colPrint++;
 
-                if (colPrint % 5 == 0)
+                if (colPrint % 1 == 0)
                     Console.WriteLine();
                 else
                     Console.Write("   ");
@@ -129,22 +178,58 @@ public class Keyboard
     asdfghjkl;'
     zxcvbnm,.-/";
 
-    public static readonly string RollerCoaster = @"
-	wfmpb  -youlz
-	sinak  'therj
-	xvd;,  /q.gc-";
-
-    public static readonly string RollerCoasterLatest = @"
-	wfmpb  -youlz
-	sinak  'therj
-	xvq;,  /d.gc-";
-
-
-
     public static readonly string Handsdown = @"
     wfmpv  /.q""'z
     rsntb  ,aeihj
     xcldg  -uoyk'";
+
+    public static readonly string RollerCoaster = @"
+	wfmpb  'youlz
+	sinak  gtherj
+	xqv;,  /d.*c-
+";
+
+    public static readonly string RollerCoasterLatest = @"
+	wdmpb  'luoyz
+	sinag  ktherj
+	xqc.,  -fv./*
+";
+    public static readonly string RollerCoaster1 = @"
+	wcmfb  'luopz
+	sinag  ytherj
+	xqd.,  -kv./*
+";
+    public static readonly string RollerCoaster2 = @"
+	wcmpb  'luofz
+	sinag  ytherj
+	xqd.,  -kv./*
+";
+    // 2 + optmizer from cyna
+    public static readonly string RollerCoaster3 = @"
+	wmcdb  'luofz
+	sinay  ktherj
+	xqp.,  -gv./*
+";
+
+    // 2 + w bigrams
+    public static readonly string RollerCoaster4 = @"
+	jcmpb  'luofz
+	sinag  ytherw
+	xqd.,  -kv./*
+";
+    // 2 + d-low row
+    public static readonly string RollerCoaster5 = @"
+	wcmpb  'luofz
+	sinag  ytherj
+	xqd.,  -kv./*
+";
+    // newest
+    public static readonly string RollerCoaster6 = @"
+	wmcdb  'luoyz
+	sinag  ktherj
+	xqp.,  -fv./*
+";
+
 
 
     public static readonly string one_trick_roll = @"
@@ -157,7 +242,10 @@ public class Keyboard
     nrstw  pheai""
     jxzgv  bd;,._";
 
-
+    public static readonly string Graphite = @"
+    bldwz  'fouj;
+    nrtsg  yhaei,
+    qxmcv  kp.-/""";
 
 
 
@@ -222,10 +310,10 @@ public class Stats()
 }
 public record Key(char K, Fingers finger, decimal rowPenalty, int row, int col);
 
-public record Bigram(string Value, decimal Frequency)
+public record Bigram(string Value, decimal Frequency, decimal FrequencyWithMirror)
 {
     public override string ToString()
     {
-        return "'" + Value + "' " + Frequency;
+        return $"'{Value}' {Frequency}% {FrequencyWithMirror}%";
     }
 }

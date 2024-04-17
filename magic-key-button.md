@@ -111,6 +111,14 @@ Most users gravitate towards having two magic keys. One on the vowel hand index 
 The index magic key does most of the sfb / scissor elimination, and the thumb magic key defaults to repeat but it's also used heavily for word completions
 
 
+One interesting impact of magic is that I can fix a lot of bad combos trivially. Like that is all know and knew,
+
+
+So, I could put k and w on the same finger, if I were so inclined
+
+
+
+
 ## Magic keys with Bigrams
 
 [BUV]
