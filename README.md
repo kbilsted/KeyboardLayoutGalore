@@ -248,3 +248,16 @@ If you code {C, C++, Java}, then semicolon is far more frequent.
 
 ## Various keyboard tricks
 [Keyboards Tips.md](keyboards-tips.md)
+
+
+## Notes on short cuts
+Various short cuts for programs and operating systems
+
+###  Windows
+	
+* Jump-to or start application: `Windows + <number>` 
+
+* Outlook
+	* Next item: `Ctrl + .`
+	* Previous item: `Ctrl + ,`
+	* Delete item: `Ctrl + d`
