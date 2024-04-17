@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyboardAnalyzer", "KeyboardAnalyzer.csproj", "{1B9B9DAA-78A7-4F24-AE9B-FE4B8F4DE90F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{16E168FA-2A58-4A2D-BBED-27405BA9E0A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B9B9DAA-78A7-4F24-AE9B-FE4B8F4DE90F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9B9DAA-78A7-4F24-AE9B-FE4B8F4DE90F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9B9DAA-78A7-4F24-AE9B-FE4B8F4DE90F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9B9DAA-78A7-4F24-AE9B-FE4B8F4DE90F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E168FA-2A58-4A2D-BBED-27405BA9E0A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E168FA-2A58-4A2D-BBED-27405BA9E0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E168FA-2A58-4A2D-BBED-27405BA9E0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E168FA-2A58-4A2D-BBED-27405BA9E0A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4412EDF-D518-457C-BD9E-89CF4775908F}
+	EndGlobalSection
+EndGlobal
