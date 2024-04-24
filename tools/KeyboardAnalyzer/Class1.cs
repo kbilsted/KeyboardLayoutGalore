@@ -13,6 +13,7 @@ public class Program
 
         Keyboards();
 
+        //Trigrams();
         //Bigrams();
         //Monograms();
     }
@@ -27,7 +28,7 @@ public class Program
                       .ToLower()
           //.Replace("the", "t")
           ;
-        var dictionary = new Corpus().GetBigrams(corpus);
+        var dictionary = new Corpus().GetNgrams(corpus, 2);
 
         var mirrorFreq = new Dictionary<string, decimal>();
         foreach (var item in dictionary)
@@ -45,7 +46,7 @@ public class Program
             }
         }
 
-        var summedBigrams = dictionary.Select(x => new Bigram(x.Key, x.Value.Freq, mirrorFreq[x.Key]))
+        var summedBigrams = dictionary.Select(x => new NGram(x.Key, x.Value.Freq, mirrorFreq[x.Key]))
             .OrderByDescending(x => x.FrequencyWithMirror)
             .Take(400)
             .Select(x => $"new (\"{x.Value}\", {x.Frequency.ToString("0.000")}M, {x.FrequencyWithMirror.ToString("0.00")}M),");
@@ -54,6 +55,46 @@ public class Program
         Console.WriteLine(string.Join("\n", summedBigrams));
 
     }
+
+    static void Trigrams()
+    {
+        string reverse(string s) => string.Join("", s.Reverse().ToArray());
+
+        string corpus = File.ReadAllText(@"C:\Users\kbils\Desktop\iweb-corpus-samples-cleaned.txt"
+        //File.ReadAllText(@"C:\Users\kbils\Desktop\filtered_full"
+        )
+                      .ToLower()
+          //.Replace("the", "t")
+          ;
+        var dictionary = new Corpus().GetNgrams(corpus, 3);
+
+        var mirrorFreq = new Dictionary<string, decimal>();
+        foreach (var item in dictionary)
+        {
+            var mirrors = reverse(item.Key);
+            if (mirrorFreq.ContainsKey(item.Key))
+            {
+                mirrorFreq[item.Key] = mirrorFreq[item.Key] + item.Value.Freq;
+                mirrorFreq[mirrors] = mirrorFreq[mirrors] + item.Value.Freq;
+            }
+            else
+            {
+                mirrorFreq[item.Key] = item.Value.Freq;
+                mirrorFreq[mirrors] = item.Value.Freq;
+            }
+        }
+
+        var summedBigrams = dictionary.Select(x => new NGram(x.Key, x.Value.Freq, mirrorFreq[x.Key]))
+            .OrderByDescending(x => x.FrequencyWithMirror)
+            .Take(600)
+            .Select(x => $"new (\"{x.Value}\", {x.Frequency.ToString("0.000")}M, {x.FrequencyWithMirror.ToString("0.00")}M),");
+
+        Console.WriteLine("grams " + dictionary.Count());
+        Console.WriteLine(string.Join("\n", summedBigrams));
+
+    }
+
+
 
     static void Monograms()
     {
@@ -80,7 +121,7 @@ public class Program
     {
 
         Stats res;
-        Bigram[] bigrams = new Corpus().ReadCorpus();
+        NGram[] bigrams = new Corpus().GetEnglishBigrams();
 
 
         void print(string name, string keyboard)
@@ -104,19 +145,19 @@ public class Program
         //Console.WriteLine("\ngraphite"); res = Analyze(new Keyboard(Keyboard.Graphite), bigrams); Console.WriteLine(res);
 
 
-        print("roller", Keyboard.RollerCoaster);
-        print("roller-latest", Keyboard.RollerCoasterLatest);
-        print("roller1", Keyboard.RollerCoaster1);
+        //print("roller", Keyboard.RollerCoaster);
+        //print("roller-latest", Keyboard.RollerCoasterLatest);
+        //print("roller1", Keyboard.RollerCoaster1);
         print("roller2", Keyboard.RollerCoaster2);
         print("roller3", Keyboard.RollerCoaster3);
         print("roller4", Keyboard.RollerCoaster4);
-        print("roller5", Keyboard.RollerCoaster5);
-        print("roller6", Keyboard.RollerCoaster6);
+        //print("roller5", Keyboard.RollerCoaster5);
+        //print("roller6", Keyboard.RollerCoaster6);
 
     }
 
 
-    public static Stats Analyze(Keyboard keyboard, Bigram[] bigrams)
+    public static Stats Analyze(Keyboard keyboard, NGram[] bigrams)
     {
         Stats result = new Stats();
         int colPrint = 0;
@@ -146,7 +187,7 @@ public class Program
             {
                 result.SFB += bigram.Frequency;
                 if (!printed)
-                    Console.Write($"{bigram.Value} {bigram.Frequency}!! ");
+                    Console.Write($"{bigram.Value} {bigram.Frequency.ToString("0.00")}!!! ");
                 printed = true;
             }
 
@@ -195,47 +236,52 @@ public class Keyboard
 	xqc.,  -fv./*
 ";
     public static readonly string RollerCoaster1 = @"
-	wcmfb  'luopz
-	sinag  ytherj
+	jgmpb  'luofz
+	sinac  ytherw
 	xqd.,  -kv./*
 ";
     public static readonly string RollerCoaster2 = @"
-	wcmpb  'luofz
-	sinag  ytherj
-	xqd.,  -kv./*
+	jdcmb  'luoyz
+	sinag  ftherw
+	xqp.-  ,kv./*
 ";
     // 2 + optmizer from cyna
     public static readonly string RollerCoaster3 = @"
-	wmcdb  'luofz
-	sinay  ktherj
-	xqp.,  -gv./*
+	jdmcb  'luoyz
+	sinag  ftherw
+	xqk,-  .p.v/*
 ";
 
     // 2 + w bigrams
     public static readonly string RollerCoaster4 = @"
-	jcmpb  'luofz
-	sinag  ytherw
-	xqd.,  -kv./*
-";
-    // 2 + d-low row
+    jdmcb  'luowz
+	sinag  fthery
+	xqk,-  .p.v/*";
+
+    // 2 
     public static readonly string RollerCoaster5 = @"
-	wcmpb  'luofz
-	sinag  ytherj
-	xqd.,  -kv./*
-";
-    // newest
+	jcmpb  'luofz
+	sinad  gtherw
+	xqy.,  -kv./*";
+
+    // 2 
     public static readonly string RollerCoaster6 = @"
-	wmcdb  'luoyz
-	sinag  ktherj
-	xqp.,  -fv./*
+	jcmpb  'luofz
+	dsina  ytherw
+	xqg.,  -kv./*
 ";
-
-
 
     public static readonly string one_trick_roll = @"
     .dyw'  zroum/
     itscf  jnael-
     ,kvpb  xhq;g""";
+
+
+    public static readonly string dvorak = @"
+    ',.py  fgcrl/
+    aoeui  dhtns-
+    ;qjkx  bmwvz""";
+
 
     public static readonly string Pine_v4 = @"
     qlcmk  'fuoy/
@@ -310,7 +356,7 @@ public class Stats()
 }
 public record Key(char K, Fingers finger, decimal rowPenalty, int row, int col);
 
-public record Bigram(string Value, decimal Frequency, decimal FrequencyWithMirror)
+public record NGram(string Value, decimal Frequency, decimal FrequencyWithMirror)
 {
     public override string ToString()
     {

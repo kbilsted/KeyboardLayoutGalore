@@ -16,20 +16,40 @@ Be bold enough to try things that others run away from. This trait has helped ma
 The way you deal with personal and professional setbacks may significantly affect your future success. Discover your coping mechanism and consider changing some aspects of it.
 If you usually switch strategies to overcome various life challenges, try to forge ahead";
 
-        [Test]
-        public void TestSubset()
-        {
-            var bigrams = new Corpus().GetBigrams(subset);
+       
 
-            bigrams.Count().Should().Be(249);
+        [Test]
+        public void TestNGramBi()
+        {
+            var bigrams = new Corpus().GetNgrams(subset,2);
+            bigrams.Count().Should().Be(256);
             bigrams["ng"].Count.Should().Be(16);
+            bigrams["al"].Count.Should().Be(8);
+        }
+
+        [Test]
+        public void TestNGramTri()
+        {
+            var bigrams = new Corpus().GetNgrams(subset, 3);
+            bigrams["nal"].Count.Should().Be(3);
+        }
+
+
+        [Test]
+        public void TestNGram()
+        {
+            var bigrams = new Corpus().GetNgrams(subset, 2);
+
+            bigrams.Count().Should().Be(256);
+            bigrams["ng"].Count.Should().Be(16);
+            bigrams["al"].Count.Should().Be(8);
         }
 
 
         [Test]
         public void Test()
         {
-            var bigrams = new Corpus().GetBigrams("ababac ");
+            var bigrams = new Corpus().GetNgrams("ababac ", 2);
 
             bigrams.Count().Should().Be(3);
             bigrams["ab"].Count.Should().Be(2);
@@ -39,7 +59,7 @@ If you usually switch strategies to overcome various life challenges, try to for
         [Test]
         public void Test2()
         {
-            var bigrams = new Corpus().GetBigrams("ab  ab ac ");
+            var bigrams = new Corpus().GetNgrams("ab  ab ac ", 2);
 
             bigrams.Count().Should().Be(2);
             bigrams["ab"].Count.Should().Be(2);

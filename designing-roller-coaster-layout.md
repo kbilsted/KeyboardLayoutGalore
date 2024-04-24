@@ -133,11 +133,121 @@ more rolls with V on top (5 more bigrams but 0.1% SFB)
 Can we reverse the "THER" to "REHT" and get a better result? 
 T is 9,28% and R is 6.28% so we would increase pinky by 3%!
 
+
+(G<->K) move work to other finger - works really nice with G on index) possibly due to trigram "ING"
+(J<->W) 
+(reverse Y-O-U - nicer place for O and gives inward roll on "found", "you" etc rather than outward rolls
+using our optimizer we accidently placed F on top row
+
+	jcmpb  'luofz
+	sinag  ytherw
+	xqd.-  ,kv./*
+	
+OR and RO isnt that bad.. words like "and", hand is so nice would
+"found" is pretty cool "roof".. also 
+AGAIn is uncomfortable
+
+
+
+more movement for index--but many more bigrams.. lets evaluate
+
+	jcmpb  'luofz
+	sinad  gtherw
+	xqy.,  -kv./*";
+
+!!! Didn't like it ! Too much index Going back!
+
+
+old layout again
+
+	jcmpb  'luofz
+	sinag  ytherw
+	xqd.-  ,kv./*
+
+
+support 3rd most trigram "AND" (1.2%) for 3 fingers rather than 2 fingers
+.. and place C as qwerty
+and improve SFB
+and make other words easier eg "AD" (0.5%) 
+(C<->D)
+	jdmpb  'luofz
+	sinag  ytherw
+	xqc.-  ,kv./*
+
+
+support 5th trigram "FOR" (0.6%) better 
+and DIRECT 7th trigram "YOU" (0.6%) 
+"ly","by" also much easier to type
+and improve SFB
+(F<->Y)
+
+	jdmpb  'luoyz
+	sinag  ftherw
+	xqc.-  ,kv./*
+
+
+miniscule improvement and make it look more like qwerty
+(X<->Z)
+
+	jdmpb  'luoyx
+	sinag  ftherw
+	zqc.-  ,kv./*
+
+
+
+slightly worse.. but want to move C to top due to it being more frequent
+hurts "AC" (1%), 
+improves "OC" (0.8%), "CU" (0.3%), "NC (0.3%) easier
+move "V" since the spot is much easier to reach on a stagered keyboard
+
+(C<->P)
+(V<->.) costs 1% SFB! but so easier to hit
+	jdmcb  'luoyx
+	sinag  ftherw
+	zqp,-  .k.v/*
+
+
+(Z<->X) feels more natural 
+	jdmcb  'luoyz
+	sinag  ftherw
+	xqp,-  .k.v/*
+
+
+improve rolls by 0.6%
+(P<->K)
+Tempting to swap Y-W but it yields more sfb, breaks the trigram and reduces bigrams
+
+	jdmcb  'luoyz
+	sinag  ftherw
+	xqk,-  .p.v/*
+
+wonderfull change! much better rolls!
+eg "thanks", "pasted" "stops", "key" 
+
+
+
+maybe swap F-G -- slightly better SFB but 1% less rolls in each direction!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--> old 
+
 Going through an analyser we can increase right hand usage from 41% to 46%
 
-(G<->K to move work to other finger - works really nice)
 (D<->F  to move work to other finger - works really nice-- words like "would", "should")
-(reverse Y-O-U - nicer place for O and gives inward roll on "found", "you" etc rather than outward rolls
 
 https://cyanophage.github.io/magic.html?layout=wmcdb%27luoyzsinagktherjxqp%2F%3B-fv.%2C%5C%5E&mode=ergo
 
@@ -147,7 +257,7 @@ sfb 2.50 roll out 7,55 roll in 3,88
 	sinag  ktherj
 	xqc.,  -fv./*
 
-cynag suggest swapping W<->Z - but this makes "would", "we" hard
+
 
 PERHAPS!!!! C to top!
 2.80, out 7,26 in 3,68
@@ -259,8 +369,21 @@ stats https://norvig.com/mayzner.html
 	UR   15.3 B (0.54%) 
 	
 	
+trigrams
+	the 2.699
+	ing 1.283
+	and 1.224
+	ion 0.683
+	ent 0.607
+	for 0.583
+	you 0.565
+	tio 0.548
+	hat 0.489
 	
-	
+
+
+
+
 with magic key t* -> the
 
 e: 10.510
