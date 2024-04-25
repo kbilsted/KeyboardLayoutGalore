@@ -9,6 +9,7 @@ public class Corpus
     }
 
 
+
     public Dictionary<string, Fre> GetMonoGrams(string corpus)
     {
         Dictionary<string, Fre> grams = new Dictionary<string, Fre>();
@@ -60,6 +61,8 @@ public class Corpus
         return grams;
     }
 
+
+
     public Dictionary<string, Fre> GetNgrams(string corpus, int n)
     {
         if (n < 1) throw new Exception("N less than 1");
@@ -91,20 +94,25 @@ public class Corpus
         for (int i = 0; i < corpus.Length - n; i++)
         {
             bool containsSpace = false;
-            for (int j = 0; j < n;j++)
+            bool allSameChar = true;
+            for (int j = 0; j < n; j++)
             {
-                if (corpus[i+j]==' ')
+                if (corpus[i + j] == ' ')
                 {
                     containsSpace = true;
                     break;
                 }
+
+                if (corpus[i + j] != corpus[i])
+                    allSameChar = false;
             }
-            if(containsSpace)
+
+            if (containsSpace)
             {
                 continue;
             }
 
-            var word = corpus.Substring(i,n);
+            var word = corpus.Substring(i, n);
             if (!grams.TryGetValue(word, out var val))
             {
                 grams.Add(word, new Fre() { Count = 1 });
@@ -113,6 +121,21 @@ public class Corpus
             {
                 val.Count = val.Count + 1;
             }
+
+            if (allSameChar)
+            {
+
+                word = "**";
+                if (!grams.TryGetValue(word, out val))
+                {
+                    grams.Add(word, new Fre() { Count = 1 });
+                }
+                else
+                {
+                    val.Count = val.Count + 1;
+                }
+            }
+
         }
 
         var total = grams.Sum(x => x.Value.Count);

@@ -354,6 +354,8 @@ low k, x,v, f
 	sinag  ctherw
 	zxf,-  .k.v/*
 
+J so nice with words like "just" inward roll rather than alternation
+F-K seem a bit weird..
 
 
 

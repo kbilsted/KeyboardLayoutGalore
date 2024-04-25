@@ -22,9 +22,16 @@ If you usually switch strategies to overcome various life challenges, try to for
         public void TestNGramBi()
         {
             var bigrams = new Corpus().GetNgrams(subset,2);
-            bigrams.Count().Should().Be(256);
+            bigrams.Count().Should().Be(257);
             bigrams["ng"].Count.Should().Be(16);
             bigrams["al"].Count.Should().Be(8);
+
+            // double letter
+            bigrams["ff"].Count.Should().Be(3);
+
+            // wildcard same letter
+            bigrams["**"].Count.Should().Be(23);
+            bigrams["**"].Freq.Should().BeApproximately(2.230M, 0.01M) ;
         }
 
         [Test]

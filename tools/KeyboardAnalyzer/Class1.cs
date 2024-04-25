@@ -254,9 +254,9 @@ public class Keyboard
 
     // 2 + w bigrams
     public static readonly string RollerCoaster4 = @"
-    jdmcb  'luowz
-	sinag  fthery
-	xqk,-  .p.v/*";
+	jdmcb  'luoyz
+	sinag  ftherw
+	xq/,-  .vp;k*";
 
     // 2 
     public static readonly string RollerCoaster5 = @"
