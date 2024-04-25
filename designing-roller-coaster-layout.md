@@ -221,15 +221,138 @@ Tempting to swap Y-W but it yields more sfb, breaks the trigram and reduces bigr
 	sinag  ftherw
 	xqk,-  .p.v/*
 
-wonderfull change! much better rolls!
+wonderful change! much better rolls!
 eg "thanks", "pasted" "stops", "key" 
 
 
+---
 
-maybe swap F-G -- slightly better SFB but 1% less rolls in each direction!!
+change upperrow for more bigrams ".?(q|v|k|p|x|j|f|g|w|l|b|j|c)
+
+p
+-- right
+pe = 0.61M
+pr = 0.46M
+pt = 0.09M
+ph = 0.08M
+--left
+sp = 0.25M
+pa = 0.51M
+> home=2.0
+pl = 0.35M
+po = 0.55M
+up = 0.26M
+>upperrow=1.16
+
+b
+be = 0.62M
+ab = 0.44M
+bo = 0.32M
+bu = 0.30M
+bi = 0.19M
+br = 0.14M
+homerow=1.68
+bl = 0.23M
+by = 0.13M
+mb = 0.09M
+upper=0.45
+
+f
+of = 0.802M, 1.34M
+>move f to upper
+fi =0.53M
+fe =0.38M
+> homerow=0.9
+
+l
+al =1.50M
+le =1.41M
+li =1.15M
+> homerow=4.06
+ol = 0.78M
+ly = 0.45M
+ul = 0.44M
+ld = 0.29M
+> upper=1.95
+pl = 0.316M, 0.35M
+
+c
+new ("ca", 0.572M, 1.03M),
+new ("ec", 0.449M, 1.03M),
+new ("ic", 0.589M, 0.81M),
+new ("ch", 0.551M, 0.55M),
+new ("ct", 0.383M, 0.43M),
+new ("nc", 0.341M, 0.34M),
+new ("cr", 0.160M, 0.26M),
+> homerow 4.4 - 1.1 = 3.3
+new ("uc", 0.163M, 0.31M),
+new ("co", 0.749M, 0.89M),
+
+
+g
+ng = 1.23M
+ge = 0.52M
+ig = 0.42M
+ag = 0.36M
+gr = 0.27M
+go = 0.26M
+>homerow=3.06
+
+w
+ow = 0.64M
+we = 0.52M
+wi = 0.48M
+wa = 0.45M
+wh = 0.37M
+> homerow=2.46
+ 
+v
+ve = 1.17M
+vi = 0.54M
+av = 0.37M
+ov = 0.26M
+>homerow=2.34
+v to homerow (v=1.05% vs W 1.68% - reduce pinky by putting W on index on V on pinky
+but more inroll with V on index..
+
+k
+ke = 0.327M, 0.36M
+> K so low frequency we leave it
+
+
+y
+new ("yo", 0.461M, 0.50M),
+new ("ly", 0.428M, 0.45M),
+> upper 0.95
+new ("ay", 0.309M, 0.33M),
+new ("ey", 0.169M, 0.30M),
+new ("ry", 0.235M, 0.24M),
+new ("ty", 0.200M, 0.22M),
+new ("ys", 0.109M, 0.16M),
+new ("ny", 0.124M, 0.14M),
+> home 1.39
+
+upperrow P,B, L, - more pinky! but better than dvorak
+homerow  C, G, W ,
+low k, x,v, f
+(P<->C) - this is the best position as "Y" only rolls with YO/LY
+(C<->F) - this possition supports "CA/CT"
+(K<->K) - we swapsince "FO" is 1.34% while next bigram is FI 0.53% - so we avoid the scissors FO
+	jdmpb  'luoyz
+	sinag  ctherw
+	xqf,-  .k.v/*
 
 
 
+
+
+
+(J<->Z)
+(Z<->X) swap so Z bigrams (IZ 0.08%, ZE 0.06%) are a bit easier to type
+(Q<->X) swap so we place keys more like QWERTY
+	qdmpb  'luoyj
+	sinag  ctherw
+	zxf,-  .k.v/*
 
 
 
