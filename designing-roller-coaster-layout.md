@@ -1,139 +1,168 @@
+# Work journal for the Roller Coaster layout
+This page journals the development of the layout, perhaps mostly interesting too me on my journey. For motivations for learning the layout see xxx.
 
-begining - optimize for RE TH IN IS (w,j,b,z,x from HD)
+## Initial idea
+We optimize for most common bigrams TH, ER, HE, IS IN, AN by placing those letters on the home row. 
+OU was inspired from Canay and Hands Down, the rest of the keys are starting of from the Hands down (e.g. w,j,b,z,x)
+
 	wpoum  'lydkz
 	anisb  'rethj
 	xcf;,  /q.gv-
 
 
-reduce pinky (anis -> sina)
+## reduce pinky (anis -> sina)
+It quickly became apparent that having S caused undue strain on the pinky finger when typing. To reduce load on the pinky finger, swap the letters such that the bigrams are still on the home row
+
 	wpoum  'lydkz
 	sinab  'rethj
 	xcf;,  /q.gv-
 
 
-reduce strain right index (ly -> yl)
+## reduce strain right index (ly -> yl)
+
+I think there is too much strain on the right index finger with 'ly' on the top. We swap since Y is much less frequent than L.
+
 	wpoum  'yldkz
 	sinab  'rethj
 	xcf;,  /q.gv-
 
 
-reduce pinky (reth -> ethr)
+
+## reduce pinky (reth -> ethr)
 	wpoum  'yldkz
 	sinab  'ethrj
 	xcf;,  /q.gv-
 
 
-reduce lowrow and weird scisors with f and make bigram OF same row! 
+## reduce lowrow and weird scisors with f and make bigram OF same row! 
 (swap f<->k)
+
 	wpoum  'yldfz
 	sinab  'ethrj
 	xck;,  /q.gv-
 
 
 
-remove SFB O-N 1.76%   vs  I-N (2.43%)  vs A-N (1.99%)
+## remove SFB O-N 1.76%   vs  I-N (2.43%)  vs A-N (1.99%)
 (WPOUM -> WOUMP)
+
 	woump  'yldfz
 	sinab  'ethrj
 	xck;,  /q.gv-
 
 
-Too much trampolining with R on pinky.. we put R it there to reduce pinky but broke ER (2.05%)
+## Too much trampolining with R on pinky.. 
+we put R it there to reduce pinky but broke ER (2.05%)
 support TH + HE + ER  and same row for AL (1.09) + LE (0.83) + LI (0.62)
 (swap R<->L)
+
 	woump  'yrdfz
 	sinab  'ehtlj
 	xck;,  /q.gv-
 
 
-remove weird gymnastics of c key (C<->V)
+## remove weird gymnastics of c key (C<->V)
+
 	woump  'yrdfz
 	sinab  'ehtlj
 	xvk;,  /q.gc-
 
 
-Less trambolining with TH-E (EHT -> THE)
+## Less trambolining with TH-E (EHT -> THE)
+
 	woump  'yrdfz
 	sinab  'thelj
 	xvk;,  /q.gc-
 
 
-more bigram by moving r to pinky again
+## more bigram by moving r to pinky again
 (swap R<->L)
+
 	woump  'yldfz
 	sinab  'therj
 	xvk;,  /q.gc-
 
 
-Move OU to stronger hand (7.6%+2.73%)
+## Move OU to stronger hand (7.6%+2.73%)
 (swap OU<->LD)
+
 	wldmp  'youfz
 	sinab  'therj
 	xvk;,  /q.gc-
 
 
-Improve SFB for ND (1.35% ) + MA (0.57%)
-(SWAP D<->Mb
+## Improve SFB for ND (1.35% ) + MA (0.57%)
+(SWAP D<->M)
+
 	wlmdp  'youfz
 	sinab  'therj
 	xvk;,  /q.gc-
 
 
-more rolling but with more finger movements
-then we swap B-P since P is more frequent 
+## more rolling but with more finger movements
+ we swap B-P since P is more frequent 
 (SWAP D<->B<->P)
+
 	wlmpb  'youfz
 	sinad  'therj
 	xvk;,  /q.gc-
 
 
-remove lateral stress 
+## remove lateral stress 
 move D<->K
+
 	wlmpb  'youfz
 	sinak  'therj
 	xvd;,  /q.gc-
 
-make more like HD
+## make more like HD
 (L<->F)
 
 	wfmpb  'youlz
 	sinak  'therj
 	xvd;,  /q.gc-
 
-optimize ND (1.56%) and place D on a stronger finger
+## optimize ND (1.56%) and place D on a stronger finger
 (D<->Q)
+
 	wfmpb  'youlz
 	sinak  'therj
 	xvq;,  /d.gc-
 
 
-optimize and place V (1.05%) on a stronger finger Q (0.12)
+## optimize and place V (1.05%) on a stronger finger Q (0.12)
 (D<->Q)
+
 	wfmpb  'youlz
 	sinak  'therj
 	xqv;,  /d.gc-
 
 
 
-more rolls with g on homerow - but yields more SFB
+## more rolls with g on homerow - but yields more SFB
 ('<->G)
+
 	wfmpb  'youlz
 	sinak  gtherj
 	xqv;,  /d.*c-
 	
 	
 
-more rolls with V on top (5 more bigrams but 0.1% SFB)
+## more rolls with V on top 
+(5 more bigrams but 0.1% SFB)
 (V<->B) .. but i remember not liking V up here.. lets try for a bit..
+
 	wfmpv  'youlz
 	sinak  gtherj
 	xqb;,  /d.*c-
 	
 
+## optimize home row?
 Can we reverse the "THER" to "REHT" and get a better result? 
 T is 9,28% and R is 6.28% so we would increase pinky by 3%!
 
 
+## you inward rolls
 (G<->K) move work to other finger - works really nice with G on index) possibly due to trigram "ING"
 (J<->W) 
 (reverse Y-O-U - nicer place for O and gives inward roll on "found", "you" etc rather than outward rolls
@@ -149,7 +178,7 @@ AGAIn is uncomfortable
 
 
 
-more movement for index--but many more bigrams.. lets evaluate
+## more movement for index--but many more bigrams.. lets evaluate
 
 	jcmpb  'luofz
 	sinad  gtherw
@@ -158,24 +187,26 @@ more movement for index--but many more bigrams.. lets evaluate
 !!! Didn't like it ! Too much index Going back!
 
 
-old layout again
+## old layout again
 
 	jcmpb  'luofz
 	sinag  ytherw
 	xqd.-  ,kv./*
 
 
-support 3rd most trigram "AND" (1.2%) for 3 fingers rather than 2 fingers
-.. and place C as qwerty
+## support 3rd most trigram AND
+
+Write "AND" (1.2%) using 3 fingers rather than 2 fingers.. and place C as qwerty
 and improve SFB
 and make other words easier eg "AD" (0.5%) 
 (C<->D)
+
 	jdmpb  'luofz
 	sinag  ytherw
 	xqc.-  ,kv./*
 
 
-support 5th trigram "FOR" (0.6%) better 
+## support 5th trigram "FOR" (0.6%) better 
 and DIRECT 7th trigram "YOU" (0.6%) 
 "ly","by" also much easier to type
 and improve SFB
@@ -186,7 +217,7 @@ and improve SFB
 	xqc.-  ,kv./*
 
 
-miniscule improvement and make it look more like qwerty
+## miniscule improvement and make it look more like qwerty
 (X<->Z)
 
 	jdmpb  'luoyx
@@ -194,6 +225,7 @@ miniscule improvement and make it look more like qwerty
 	zqc.-  ,kv./*
 
 
+## More rolls for C
 
 slightly worse.. but want to move C to top due to it being more frequent
 hurts "AC" (1%), 
@@ -202,20 +234,23 @@ move "V" since the spot is much easier to reach on a stagered keyboard
 
 (C<->P)
 (V<->.) costs 1% SFB! but so easier to hit
+
 	jdmcb  'luoyx
 	sinag  ftherw
 	zqp,-  .k.v/*
 
 
+## X was odd in upper right
 (Z<->X) feels more natural 
+
 	jdmcb  'luoyz
 	sinag  ftherw
 	xqp,-  .k.v/*
 
 
-improve rolls by 0.6%
-(P<->K)
+## improve rolls by 0.6%
 Tempting to swap Y-W but it yields more sfb, breaks the trigram and reduces bigrams
+(P<->K)
 
 	jdmcb  'luoyz
 	sinag  ftherw
@@ -225,17 +260,17 @@ wonderful change! much better rolls!
 eg "thanks", "pasted" "stops", "key" 
 
 
----
+## Upprove bigram rolls for upper and mid row
 
-change upperrow for more bigrams ".?(q|v|k|p|x|j|f|g|w|l|b|j|c)
+change upperrow for more bigrams, we look at the bigrams by searching for `".?(q|v|k|p|x|j|f|g|w|l|b|j|c)`
 
 p
--- right
+> right
 pe = 0.61M
 pr = 0.46M
 pt = 0.09M
 ph = 0.08M
---left
+> left
 sp = 0.25M
 pa = 0.51M
 > home=2.0
@@ -352,6 +387,7 @@ low k, x,v, f
 (P<->C) - this is the best position as "Y" only rolls with YO/LY
 (C<->F) - this possition supports "CA/CT"
 (K<->K) - we swap since "FO" is 1.34% while next bigram is FI 0.53% - so we avoid the scissors FO
+
 	jdmpb  'luoyz
 	sinag  ctherw
 	xqf,-  .k.v/*
@@ -359,11 +395,12 @@ low k, x,v, f
 
 
 
-
+## more like qwerty
 
 (J<->Z)
 (Z<->X) swap so Z bigrams (IZ 0.08%, ZE 0.06%) are a bit easier to type
 (Q<->X) swap so we place keys more like QWERTY
+
 	qdmpb  'luoyj
 	sinag  ctherw
 	zxf,-  .k.v/*
@@ -373,8 +410,8 @@ Q in "question" reasonable
 F-K seem a bit weird..should be swapped perhaps
 
 
-
-(L<->M)i never liked l on index
+## Moving L from index
+(L<->M) i never liked L on index and gives more balanced left-right hand usage
 (W<->V) V has more bigrams on homerow than W - w still is nice for
 
 	qdlpb  'muoyj
@@ -399,87 +436,12 @@ we get much better SFB - but we loose a lot of the rolls!
 
 
 # Back on track..
-
+we move W to lower left to avoid OW scisors, and avoid WH, WE 
 i dont like B... so we swap and add delete and newline for ergonomics
 
-	qdlp↵ 'muoyj
+	qdlpb ↵muoyj
 	sinag  ctherv
-	zxf,⌫  kb,.-
-
-
-
---
-
-
-
-
-
-
---> old 
-
-Going through an analyser we can increase right hand usage from 41% to 46%
-
-(D<->F  to move work to other finger - works really nice-- words like "would", "should")
-
-https://cyanophage.github.io/magic.html?layout=wmcdb%27luoyzsinagktherjxqp%2F%3B-fv.%2C%5C%5E&mode=ergo
-
-sfb 2.50 roll out 7,55 roll in 3,88
-
-	wdmpb  'luoyz
-	sinag  ktherj
-	xqc.,  -fv./*
-
-
-
-PERHAPS!!!! C to top!
-2.80, out 7,26 in 3,68
-	wdmcb  'luoyz
-	sinag  ktherj
-	xqp.,  -fv./*
-
-OR
-(DMP<->MCD) Moving around due to begger SFB (2.44% vs 2.74)
-(P<->C) Moving C up due to being more frequent
-2.54, out 6.26, in 4.00
-	wmcdb  'luoyz
-	sinag  ktherj
-	xqp.,  -fv./*
-
-
-OR 
-(Y<->G) moving Y to put G on a better spot
-(F<->G) moving F up due to being more frequent
-(P<->C) Moving C up due to being more frequent
-(DMP<->MCD) Moving around due to begger SFB (2.44% vs 2.74)
-sfb 2,59, out 5.25, in 2,35
-	wmcdb  'luofz
-	sinay  ktherj
-	xqp.,  -gv./*
-
-
-
-
-
-
-MAGIC BUTTON configuration
-	L* -> LF
-	I* -> IC
-
-
-
-	I* -> ID  (we use that in programming alot!)
-	Q* -> QUE
-	E* -> EY
-	B* -> BA
-	D* -> DI
-	
-	W* -> WI
-	R* -> RY
-	S* -> SC
-	O* -> OF
-	N* -> NC
-    SPACE* -> <Backspace> ',' <Space>
-	A* -> AB (more common than AG)
+	zxwf⌫ k*,.-
 
 
 
@@ -609,23 +571,6 @@ $: 0.014
 Training material
 -----------------
 > write long english sentenses using only letters s,i,n.a,t,h,e,r
-
-* She has three thin shirts in her neat suitcase.
-* He is near the stairs, listening as the rain intensifies.
-* There is an ant here, and it insists on entering the tent.
-* The rain is intense as it thrashes against the earth.
-* She enters the train, then she sits there, staring at her hands.
-* He rinses his shirt near the stream, then hangs it in the sunshine.
-* Tina has an interest in art; she paints rather intense scenes at night.
-
-> write long english sentenses using only letters s,i,n,a,t,h,e,r, y,k,j,
-* There, in the kitchen, Jenny hastily jerks the shiny jar, as it strikes another.
-* Katherine enjoys her tiny, shiny kayak near the jetty as the sun rises.
-* He thinks the rainy sky threatens his journey as he treks near the stark hills.
-* She just takes her knitting yarn, starts knitting, then enjoys her tea by the hearth.
-* The risky journey near the stark, rainy highlands tests her anxiety.
-* Jenny and Katherine share their interest in arts, yarn, and shiny trinkets.
-* The jester’s antics in the throne room entertain the harsh, stern king.
 
 
 

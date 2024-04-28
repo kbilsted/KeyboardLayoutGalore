@@ -48,7 +48,7 @@ public class Program
 
         var summedBigrams = dictionary.Select(x => new NGram(x.Key, x.Value.Freq, mirrorFreq[x.Key]))
             .OrderByDescending(x => x.FrequencyWithMirror)
-            .Take(700)
+            .Take(800)
             .Select(x => $"new (\"{x.Value}\", {x.Frequency.ToString("0.000")}M, {x.FrequencyWithMirror.ToString("0.00")}M),");
 
         Console.WriteLine("bigrams " + dictionary.Count());
