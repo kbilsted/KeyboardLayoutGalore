@@ -1,4 +1,11 @@
 # Magic Key button
+The core purpose of the magic key is to nearly eliminate all problem SFBs and scissors from the layout. See eg https://getreuer.info/posts/keyboards/alt-layouts/index.html (magic sturdy).
+
+The idea is that bigrams that are hard to reach you autocomplete with the magic button
+
+
+https://getreuer.info/posts/keyboards/alt-layouts/index.html
+
 Unedited notes from discussions on the "Alt keyboard layouts" discord 
 
 
@@ -76,10 +83,13 @@ In Magic Sturdy (as opposed to @Guillaume is typing... 's layout), n is more com
 So, I use rules to effectively swap them after a wordbreak
 
 
-What I love about the conditional key swapping feature is that it's a super powerful feature in its own right, and I was able to accomplish it by total accident in about 2 minutes without needing to add any feature to the library.
+What I love about the conditional key swapping feature is that it's a super powerful 
+feature in its own right, and I was able to accomplish it by total accident in about 2 minutes 
+without needing to add any feature to the library.
 Autocorrect, leader keys, repeat key, macros, many more features are all covered.
 
-Earlier someone was asking about delaying output to remove the need to have rules use backspaces. That is also now available:
+Earlier someone was asking about delaying output to remove the need to have rules use 
+backspaces. That is also now available:
 
     ⎵s👍         ⇒ s
     ⎵s👍∀        ⇒ some◯
@@ -105,18 +115,12 @@ And all the verbs that end in e get output right away, even though following the
 
 
 
-Most users gravitate towards having two magic keys. One on the vowel hand index and the other on the non-space thumb.
+Most users gravitate towards having two magic keys. One on the 
+vowel hand index and the other on the non-space thumb.
 
 
-The index magic key does most of the sfb / scissor elimination, and the thumb magic key defaults to repeat but it's also used heavily for word completions
-
-
-One interesting impact of magic is that I can fix a lot of bad combos trivially. Like that is all know and knew,
-
-
-So, I could put k and w on the same finger, if I were so inclined
-
-
+The index magic key does most of the sfb / scissor elimination, 
+and the thumb magic key defaults to repeat but it's also used heavily for word completions
 
 
 ## Magic keys with Bigrams
@@ -143,39 +147,3 @@ To be more clear, after pressing F, the next bigram key press will output C. But
 I've been using it in addition to adaptive keys successfully and just wanted to share incase anyone else finds it useful.
 
 https://github.com/anantoghosh/My-QMK/blob/ananto-lily58/keyboards/lily58/rev1/keymaps/vial/skip_bigrams.c
-
-
-## Magic key as repeat key
-https://www.reddit.com/r/KeyboardLayouts/comments/1cb2v3l/showcasing_my_implementation_of_hybrid_repeat/
-
-i!✨ Over the last month and a half I've been playing with (and settling on) a concept for repeat and magic keys that more evenly distributes workload between the two keys, and improves in-rolling for any layout by ~2.5% at no cost (assuming you use repeat and magic keys)!
-
-This is done by hybridising both keys so that their specific function--repeat or magic--is determined by which hand presses the preceding key. I'll call them the hybrid key for the rest of this post.
-
-USAGE
-If the preceding key is on the same hand as the hybrid key, it acts as a repeat key. This creates an inward roll for any letter that must repeat: finger->thumb. Double letters make up ~2.5% of all bigrams, so now instead of being neither an alternate or a roll, they're a much-beloved inward roll.
-
-If the preceding key is from the opposite hand as the hybrid key, it acts as magic, which will look very different from person-to-person.
-
-Personally, I treat magic similarly to combos, where for them to feel worthwhile, they must save time, usually by decreasing the total number of keys being pressed, such as sending multi-character strings or a keyboard shortcut. I didn't find the usual SFB-reducing possibilities of magic to be elegant enough to be worthwhile.
-
-SHOWCASE
-Here is a video showcasing the way these work in practice, typing on the Nordrassil layout! https://www.youtube.com/watch?v=P8a-Mzgbl8c
-
-The innermost thumb keys are the hybrid keys, and each use of them in this video is for the repeat functionality only. This hopefully shows that the rhythm gained by this implementation is quite nice and feels very flowy. I found that having my left hand be responsible for all repeats was noticeably taxing, and splitting it between both hands like this solved that, and feels a lot nicer too!
-
-As an aside, my key labelled j is currently set to backspace because I'm currently experimenting with alternate key positions for it (lateral pinky is a bad default, and I was quite fatigued with it on my thumb).
-
-IMPLEMENTATION
-My simple implementation is to define two custom alternate repeat keys (one for each hand) and manually define a library of outputs. This is very human-readable and easy to understand and configure, but the initial setup could be a bother. I haven't set up a repository for my keymap on Github, but here's a pastebin copy of my keymap.c, which contains everything you'll need: https://pastebin.com/j0pfKzBR
-
-I will also gladly help anyone with this implementation if they run into issues! 💜
-
-I'm sure the wizards among you can find a way to base their function on matrix positions and actually call repeat or magic case-by-case, and I will leave that possibility in your very capable hands.
-
-CAVEATS
-Layouts with a thumb-alpha, such as Maltron or Nordrassil will have to have said alpha as an alternate instead of an in-roll, to avoid the SFB. I've had no issues with this in practice (muscle memory is doing its job), but mentally it's a bother due to inconsistency. Alas, to live is to suffer.
-
-My hybrid keys are set are on opposite off-home thumb keys. They're symmetrically placed and intuitive to read as sisters or equivalents. The hybrid concept may not work so cleanly if your implementation looks more like Magic Sturdy, where repeat is part of the alphas' 10x3.
-
-And that's about it!! I hope at the very least this has been an interesting read! I'd love to hear your thoughts about this concept, and how you use repeat and magic!

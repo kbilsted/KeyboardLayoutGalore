@@ -252,66 +252,67 @@ bu = 0.30M
 bi = 0.19M
 br = 0.14M
 homerow=1.68
-bl = 0.23M
-by = 0.13M
-mb = 0.09M
-upper=0.45
+bl = 0.23
+by = 0.13
+mb = 0.09
+upper = 0.45
 
 f
 of = 0.802M, 1.34M
 >move f to upper
-fi =0.53M
-fe =0.38M
+fi = 0.53
+fe = 0.38
 > homerow=0.9
 
 l
-al =1.50M
-le =1.41M
-li =1.15M
+al = 1.50
+le = 1.41
+li = 1.15
 > homerow=4.06
-ol = 0.78M
-ly = 0.45M
-ul = 0.44M
-ld = 0.29M
+ol = 0.78
+ly = 0.45
+ul = 0.44
+ld = 0.29
 > upper=1.95
 pl = 0.316M, 0.35M
 
 c
-new ("ca", 0.572M, 1.03M),
-new ("ec", 0.449M, 1.03M),
-new ("ic", 0.589M, 0.81M),
-new ("ch", 0.551M, 0.55M),
-new ("ct", 0.383M, 0.43M),
-new ("nc", 0.341M, 0.34M),
-new ("cr", 0.160M, 0.26M),
+ca = 1.03
+ec = 1.03
+ic = 0.81
+ch = 0.55
+ct = 0.43
+nc = 0.34
+cr = 0.26
 > homerow 4.4 - 1.1 = 3.3
-new ("uc", 0.163M, 0.31M),
-new ("co", 0.749M, 0.89M),
+uc 0.31
+co 0.89
 
 
 g
-ng = 1.23M
-ge = 0.52M
-ig = 0.42M
-ag = 0.36M
-gr = 0.27M
-go = 0.26M
->homerow=3.06
+ng = 1.23
+ge = 0.52
+ig = 0.42
+
+ag = 0.36
+gr = 0.27
+>homerow=2.8
+go = 0.26
 
 w
-ow = 0.64M
-we = 0.52M
-wi = 0.48M
-wa = 0.45M
-wh = 0.37M
-> homerow=2.46
+we = 0.52
+wi = 0.48
+wa = 0.45
+wh = 0.37
+> homerow=1.8
+ow = 0.64
  
 v
-ve = 1.17M
-vi = 0.54M
-av = 0.37M
-ov = 0.26M
+ve = 1.17
+vi = 0.54
+av = 0.37
 >homerow=2.34
+ov = 0.26
 v to homerow (v=1.05% vs W 1.68% - reduce pinky by putting W on index on V on pinky
 but more inroll with V on index..
 
@@ -321,23 +322,36 @@ ke = 0.327M, 0.36M
 
 
 y
-new ("yo", 0.461M, 0.50M),
-new ("ly", 0.428M, 0.45M),
-> upper 0.95
-new ("ay", 0.309M, 0.33M),
-new ("ey", 0.169M, 0.30M),
-new ("ry", 0.235M, 0.24M),
-new ("ty", 0.200M, 0.22M),
-new ("ys", 0.109M, 0.16M),
-new ("ny", 0.124M, 0.14M),
+yo = 0.50
+ly = 0.45
+> top 0.95
+ay = 0.33
+ey = 0.30
+ry = 0.24
+ty = 0.22
+ys = 0.16
+ny = 0.14
 > home 1.39
+
+m
+me = 1.12
+ma = 0.87
+im = 0.58
+rm = 0.15
+ms = 0.13
+>home 2.85
+om = 0.92
+mp = 0.25
+um = 0.23
+>top 1.4
+
 
 upperrow P,B, L, - more pinky! but better than dvorak
 homerow  C, G, W ,
 low k, x,v, f
 (P<->C) - this is the best position as "Y" only rolls with YO/LY
 (C<->F) - this possition supports "CA/CT"
-(K<->K) - we swapsince "FO" is 1.34% while next bigram is FI 0.53% - so we avoid the scissors FO
+(K<->K) - we swap since "FO" is 1.34% while next bigram is FI 0.53% - so we avoid the scissors FO
 	jdmpb  'luoyz
 	sinag  ctherw
 	xqf,-  .k.v/*
@@ -355,13 +369,46 @@ low k, x,v, f
 	zxf,-  .k.v/*
 
 J so nice with words like "just" inward roll rather than alternation
-F-K seem a bit weird..
+Q in "question" reasonable
+F-K seem a bit weird..should be swapped perhaps
 
 
 
+(L<->M)i never liked l on index
+(W<->V) V has more bigrams on homerow than W - w still is nice for
+
+	qdlpb  'muoyj
+	sinag  ctherv
+	zxf,-  .w.k/*
+
+i like the placement of l and m
 
 
 
+# this is pure danger
+we swap YOU to the other side
+optimize for ING, AND AL,NO
+not sure if its a good idea of moving away from homerow for g... lets try it
+
+	yulo,  'dmpqj
+	sinag  ctherv
+	zxk.*  fwb;.*
+
+we get much better SFB - but we loose a lot of the rolls!
+
+
+
+# Back on track..
+
+i dont like B... so we swap and add delete and newline for ergonomics
+
+	qdlp↵ 'muoyj
+	sinag  ctherv
+	zxf,⌫  kb,.-
+
+
+
+--
 
 
 

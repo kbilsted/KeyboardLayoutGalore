@@ -14,7 +14,7 @@ public class Program
         Keyboards();
 
         //Trigrams();
-        //Bigrams();
+        Bigrams();
         //Monograms();
     }
 
@@ -48,7 +48,7 @@ public class Program
 
         var summedBigrams = dictionary.Select(x => new NGram(x.Key, x.Value.Freq, mirrorFreq[x.Key]))
             .OrderByDescending(x => x.FrequencyWithMirror)
-            .Take(400)
+            .Take(700)
             .Select(x => $"new (\"{x.Value}\", {x.Frequency.ToString("0.000")}M, {x.FrequencyWithMirror.ToString("0.00")}M),");
 
         Console.WriteLine("bigrams " + dictionary.Count());
@@ -116,6 +116,7 @@ public class Program
     }
 
     const decimal DirectNeighbourWeight = 1.5m;
+    const decimal NextRowNeighbourWeight = 0.3m;
 
     public static void Keyboards()
     {
@@ -145,7 +146,7 @@ public class Program
         //Console.WriteLine("\ngraphite"); res = Analyze(new Keyboard(Keyboard.Graphite), bigrams); Console.WriteLine(res);
 
 
-        //print("roller", Keyboard.RollerCoaster);
+        print("roller", Keyboard.RollerCoaster);
         //print("roller-latest", Keyboard.RollerCoasterLatest);
         //print("roller1", Keyboard.RollerCoaster1);
         print("roller2", Keyboard.RollerCoaster2);
@@ -181,6 +182,23 @@ public class Program
 
                 Console.Write($"{bigram.Value} {value.ToString("0.00")}  {(isNeighbour ? "Y" : "N")}{(SFB ? "!" : " ")}");
                 printed = true;
+            }
+
+            bool neighbourRow = Math.Abs(keys[0].row - keys[1].row) == 1;
+            if (neighbourRow) 
+            { 
+                bool neighbourCol= Math.Abs(keys[0].col- keys[1].col) == 1;
+                if(neighbourCol)
+                {
+
+                    decimal value = bigram.Frequency * NextRowNeighbourWeight;
+                    result.Value += value;
+                    matches++;
+
+                    Console.Write($"{bigram.Value} {bigram.Frequency.ToString("0.00")}  ${(SFB ? "!" : " ")}");
+                    printed = true;
+
+                }
             }
 
             if (SFB)
@@ -241,22 +259,23 @@ public class Keyboard
 	xqd.,  -kv./*
 ";
     public static readonly string RollerCoaster2 = @"
-	jdcmb  'luoyz
-	sinag  ftherw
-	xqp.-  ,kv./*
+	qdlpb  'muoyj
+	sinag  ctherv
+	zxf.-  ,w.k/*
 ";
     // 2 + optmizer from cyna
     public static readonly string RollerCoaster3 = @"
-	jdmcb  'luoyz
-	sinag  ftherw
-	xqk,-  .p.v/*
+	qdlpb  'muoyj
+	sinag  ctherw
+	zxf.-  ,kv./*
 ";
 
     // 2 + w bigrams
     public static readonly string RollerCoaster4 = @"
-	jdmcb  'luoyz
-	sinag  ftherw
-	xq/,-  .vp;k*";
+    .dyw'  zroum*
+    itscf  jnael/
+    ,kvpb  xhq;g-
+  ";
 
     // 2 
     public static readonly string RollerCoaster5 = @"
