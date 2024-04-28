@@ -26,6 +26,12 @@ public class Compiler
           Space          Enter"
         .Split([" ", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
 
+    public static readonly string[] QWERTY_simple=
+       @"Q W E R T      Y U I      O       P         
+          A S D F G      H J K      L       Quote
+          Z X C V B      N M Comma  Period  Slash"
+       .Split([" ", "\r", "\n"], StringSplitOptions.RemoveEmptyEntries);
+
 
     public static void CompileToFile(string keyboard, string[] targetBoard, K[] combos, Action<K[]> Writer)
     {
