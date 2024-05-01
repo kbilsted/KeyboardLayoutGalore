@@ -293,7 +293,7 @@ mb = 0.09
 upper = 0.45
 
 f
-of = 0.802M, 1.34M
+of = 1.34
 >move f to upper
 fi = 0.53
 fe = 0.38
@@ -441,8 +441,23 @@ i dont like B... so we swap and add delete and newline for ergonomics
 
 	qdlpb ↵muoyj
 	sinag  ctherv
-	zxwf⌫ k*,.-
+	zxwk⌫ f*,.-
 
+
+# outer rolls for the win! kA is esier than WA!
+quite against common knowlege outer rolls are sometimes much easier than inner rolls!
+e.g. KA is easier than WA. KA is less frequent so we swap
+
+
+ak = 0.17
+wa = 0.42 (and bigram was/way = 0.3)
+(K<->W)
+
+after using it a bit im happy
+
+	qdlpb ↵muoyj
+	sinag  ctherv
+	zxkw⌫ f*,.-
 
 
 
