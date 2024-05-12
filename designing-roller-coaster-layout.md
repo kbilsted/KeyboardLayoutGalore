@@ -5,6 +5,11 @@ This page journals the development of the layout, perhaps mostly interesting too
 We optimize for most common bigrams TH, ER, HE, IS IN, AN by placing those letters on the home row. 
 OU was inspired from Canay and Hands Down, the rest of the keys are starting of from the Hands down (e.g. w,j,b,z,x)
 
+Some of the most fun words to type on qwerty is
+* POWER
+* RETRY
+* FEVER
+
 	wpoum  'lydkz
 	anisb  'rethj
 	xcf;,  /q.gv-
@@ -292,24 +297,6 @@ by = 0.13
 mb = 0.09
 upper = 0.45
 
-f
-of = 1.34
->move f to upper
-fi = 0.53
-fe = 0.38
-> homerow=0.9
-
-l
-al = 1.50
-le = 1.41
-li = 1.15
-> homerow=4.06
-ol = 0.78
-ly = 0.45
-ul = 0.44
-ld = 0.29
-> upper=1.95
-pl = 0.316M, 0.35M
 
 c
 ca = 1.03
@@ -323,6 +310,23 @@ cr = 0.26
 uc 0.31
 co 0.89
 
+d
+de = 1.62 
+nd = 1.28 
+id = 0.72
+ad = 0.53
+od = 0.43
+ld = 0.28
+rd = 0.27
+
+
+f
+of = 1.34
+>move f to upper
+fi = 0.53
+fe = 0.38
+> homerow=0.9
+
 
 g
 ng = 1.23
@@ -333,6 +337,32 @@ ag = 0.36
 gr = 0.27
 >homerow=2.8
 go = 0.26
+
+
+
+l
+al = 1.50
+le = 1.41
+li = 1.15
+> homerow=4.06
+ol = 0.78
+ly = 0.45
+ul = 0.44
+ld = 0.29
+> upper=1.95
+pl = 0.316M, 0.35M
+
+m
+me = 1.12
+ma = 0.87
+im = 0.58
+rm = 0.15
+ms = 0.13
+>home 2.85
+om = 0.92
+mp = 0.25
+um = 0.23
+>top 1.4
 
 w
 we = 0.52
@@ -368,17 +398,8 @@ ys = 0.16
 ny = 0.14
 > home 1.39
 
-m
-me = 1.12
-ma = 0.87
-im = 0.58
-rm = 0.15
-ms = 0.13
->home 2.85
-om = 0.92
-mp = 0.25
-um = 0.23
->top 1.4
+
+
 
 
 upperrow P,B, L, - more pinky! but better than dvorak
@@ -425,6 +446,8 @@ i like the placement of l and m
 # this is pure danger
 we swap YOU to the other side
 optimize for ING, AND AL,NO
+it also places almost all vovels on one side which leads us down the path of looking like all the other keyboard layouts..
+ 
 not sure if its a good idea of moving away from homerow for g... lets try it
 
 	yulo,  'dmpqj
@@ -460,7 +483,151 @@ after using it a bit im happy
 	zxkw⌫ f*,.-
 
 
+## More rolls with W at top
+(Q<->W) to get more rolls with W
+(Q<->K) K is more frequent and easier spot to hit
+(F<->P) move F to top row since F and O have very high bigram frequency. f is on the left side rather than the right side since moving M to the other side has more SFB - also MO is 0.83 and FO is 1.27. "UOF" rather than "UOY" is also problematic for writing the trigram "FOR" which is very common
+(B<->*) More infrequent B to a bad spot to make room for an adaptive key for later use
+(J to low row) move J down since it was a huge distance for the pinky to reach in the upper coner
 
+when we move D to the home row we get a lot of trambolining and stuff.. it did not feel nice. perhaps 
+too much action for the index?? need to experiment more
+
+	wdlpf↵ bmuoy
+	sinag  ctherv
+	zxqk⌫  j.-
+
+
+i really like the LD and LF rolls.. like in couLD and haLF
+"if only she could she would half to herself whisper and shiver"
+ 
+
+
+## Try moving D down to make top row less crowded with high frequency letters
+
+i did not like this too much.. the  D on the low row was breaking up some nive rolls.. i also tried replacing G with D
+which also wasnt nice
+
+	wdlpf  bmuoy'
+	sinag  ctherj
+	zxqk,  .vd
+	
+
+## Too much upper row trafic with both F and P
+(F-P-Q)
+we swap P and F and move move P down to the low row. Since Q is very often followed by a U 
+we put them on the same row. the spot Q takes is one of the worst spots so it makes sense to populate the infrequent Q and B
+
+(Y-J-K)
+EY and RY was very difficult. So was the roll YOU at higher speeds. The most frequent bigram with Y is YO (0.50) so that is unfortunate,
+but moving it to the right hand makes it still ok to type YOU and it evens out the hand usage a bit more
+.. it also turns Y from a pinky to an index.
+
+J is very infrequent, so we place it at the top instead this makes it 1 key closer 
+
+V is on the bottom row again since we do gain rolls placing it next to R but it makes for a stretch
+and there are some strange rolls with VE, VR
+
+	wdlfq bmuoj
+	sinag cther'
+	zxpy⌫ -vk,.
+
+
+
+
+
+
+
+
+# simulating a magic key with T
+T is a magic key that types "the" this removes the need for H on 
+the home row since it becomes rarely used. and bigram "TH" is only a 21th spot 
+
+
+	qdlfy *mpuj/
+	sinag  ctoerb
+	zxhk⌫ vw,.b
+
+
+stats
+
+
+
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("er", 1.663M, 3.43M),
+	new ("re", 1.767M, 3.43M),
+	new ("**", 2.727M, 2.73M),
+	new ("in", 2.394M, 2.69M),
+	new ("ni", 0.299M, 2.69M),
+	new ("an", 1.923M, 2.22M),
+	new ("na", 0.299M, 2.22M),
+	new ("it", 1.109M, 2.18M),
+	new ("ti", 1.069M, 2.18M),
+	new ("es", 1.176M, 2.02M),
+	new ("se", 0.847M, 2.02M),
+	new ("t@", 1.994M, 2.00M),
+	new ("@t", 0.002M, 2.00M),
+	new ("ro", 0.703M, 1.99M),
+	new ("or", 1.285M, 1.99M),
+	new ("on", 1.527M, 1.91M),
+	new ("no", 0.385M, 1.91M),
+	new ("en", 1.200M, 1.90M),
+	new ("ne", 0.696M, 1.90M),
+	new ("ta", 0.498M, 1.83M),
+	new ("at", 1.331M, 1.83M),
+	new ("ed", 0.970M, 1.65M),
+	new ("de", 0.678M, 1.65M),
+	new ("ar", 1.047M, 1.62M),
+	new ("ra", 0.574M, 1.62M),
+	new ("to", 1.179M, 1.59M),
+	new ("ot", 0.413M, 1.59M),
+	new ("te", 1.086M, 1.54M),
+	new ("et", 0.450M, 1.54M),
+	new ("is", 0.972M, 1.48M),
+	new ("si", 0.513M, 1.48M),
+	new ("al", 0.979M, 1.45M),
+	new ("la", 0.468M, 1.45M),
+	new ("st", 1.063M, 1.41M),
+	new ("ts", 0.352M, 1.41M),
+	new ("le", 0.847M, 1.36M),
+	new ("el", 0.512M, 1.36M),
+	new ("nd", 1.282M, 1.31M),
+	new ("dn", 0.026M, 1.31M),
+	new ("fo", 0.522M, 1.30M),
+	new ("of", 0.775M, 1.30M),
+	new ("th", 1.146M, 1.28M),
+	new ("ht", 0.137M, 1.28M),
+	new ("ng", 1.124M, 1.19M),
+	new ("gn", 0.061M, 1.19M),
+	new ("ou", 1.177M, 1.18M),
+	new ("uo", 0.006M, 1.18M),
 
 
 stats https://norvig.com/mayzner.html
