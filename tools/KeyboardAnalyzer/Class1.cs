@@ -14,7 +14,7 @@ public class Program
         Keyboards();
 
         //Trigrams();
-        Bigrams();
+        //Bigrams();
         //Monograms();
     }
 
@@ -26,7 +26,7 @@ public class Program
         //File.ReadAllText(@"C:\Users\kbils\Desktop\filtered_full"
         )
                       .ToLower()
-          //.Replace("the", "t")
+          .Replace("the", "t@")
           ;
         var dictionary = new Corpus().GetNgrams(corpus, 2);
 
@@ -115,29 +115,31 @@ public class Program
 
     }
 
+    const decimal SameRow1kipNeighbourWeight = 1.2m;
     const decimal DirectNeighbourWeight = 1.5m;
-    const decimal NextRowNeighbourWeight = 0.3m;
+    const decimal NextRowNeighbourWeight = 0.5m;
 
     public static void Keyboards()
     {
 
         Stats res;
-        NGram[] bigrams = new Corpus().GetEnglishBigrams();
+        NGram[] bigrams = new Corpus().GetEnglishBigrams()
+            .Where(x=>!x.Value.Contains("!"))
+            .Where(x=>!x.Value.Contains("?"))
+            .ToArray();
 
 
-        void print(string name, string keyboard)
+        Stats print(string name, string keyboard)
         {
             Console.WriteLine("--------");
             Console.WriteLine("--------");
             Console.WriteLine("--------");
             Console.WriteLine("\n" + name);
-            res = Analyze(new Keyboard(keyboard), bigrams);
+            res = Analyze(new Keyboard(keyboard, name), bigrams);
             Console.WriteLine(res);
+            return res;
         }
 
-        //Console.WriteLine("qwerty"); res = Analyze(new Keyboard(Keyboard.QWERTY), bigrams); Console.WriteLine(res);
-
-        //Console.WriteLine("\nhandsdown"); res = Analyze(new Keyboard(Keyboard.Handsdown), bigrams); Console.WriteLine(res);
 
         //Console.WriteLine("\none_trick_roll"); res = Analyze(new Keyboard(Keyboard.one_trick_roll), bigrams); Console.WriteLine(res);
 
@@ -145,22 +147,26 @@ public class Program
 
         //Console.WriteLine("\ngraphite"); res = Analyze(new Keyboard(Keyboard.Graphite), bigrams); Console.WriteLine(res);
 
+        var stats = new Stats[] {
+        print("qwerty",Keyboard.QWERTY),
+        print("handsdown", Keyboard.Handsdown),
 
-        print("roller", Keyboard.RollerCoaster);
+        print("roller", Keyboard.RollerCoaster),
         //print("roller-latest", Keyboard.RollerCoasterLatest);
         //print("roller1", Keyboard.RollerCoaster1);
-        print("roller2", Keyboard.RollerCoaster2);
-        print("roller3", Keyboard.RollerCoaster3);
-        print("roller4", Keyboard.RollerCoaster4);
-        //print("roller5", Keyboard.RollerCoaster5);
-        //print("roller6", Keyboard.RollerCoaster6);
-
+        print("roller2", Keyboard.RollerCoaster2),
+        print("roller3", Keyboard.RollerCoaster3),
+        print("roller4", Keyboard.RollerCoaster4),
+        print("roller5", Keyboard.RollerCoaster5),
+        print("roller6", Keyboard.RollerCoaster6),
+        };
+        Console.WriteLine(string.Join("\n",stats.Select(x=>x.Name+ " "+x.ToString())));
     }
 
 
     public static Stats Analyze(Keyboard keyboard, NGram[] bigrams)
     {
-        Stats result = new Stats();
+        Stats result = new Stats(keyboard.Name);
         int colPrint = 0;
         int matches = 0;
 
@@ -176,7 +182,14 @@ public class Program
             if (keyboard.ContainsSameRowSequence(keys))
             {
                 bool isNeighbour = (Math.Abs(keys[0].col - keys[1].col) == 1);
-                decimal value = bigram.Frequency * (isNeighbour ? DirectNeighbourWeight : 1.0M);
+                bool oneSkipNeighbour = (Math.Abs(keys[0].col - keys[1].col) == 2);
+                decimal weight = 1;
+                if (isNeighbour)
+                {
+                    weight = DirectNeighbourWeight;
+                }
+                if(oneSkipNeighbour) { weight = SameRow1kipNeighbourWeight; }
+                decimal value = bigram.Frequency * weight;
                 result.Value += value;
                 matches++;
 
@@ -225,22 +238,19 @@ public class Program
         return result;
     }
 
-
-
-
 }
 
 public class Keyboard
 {
     public static readonly string QWERTY = @"
     qwertyuiop'
-    asdfghjkl;'
+    asdfghjkl;*
     zxcvbnm,.-/";
 
     public static readonly string Handsdown = @"
     wfmpv  /.q""'z
     rsntb  ,aeihj
-    xcldg  -uoyk'";
+    xcldg  -uoyk*";
 
     public static readonly string RollerCoaster = @"
 	wfmpb  'youlz
@@ -263,31 +273,33 @@ public class Keyboard
 	sinag  ctherv
 	zxf.-  ,w.k/*
 ";
-    // 2 + optmizer from cyna
+   
+
     public static readonly string RollerCoaster3 = @"
-	qdlpb  'muoyj
-	sinag  ctherw
-	zxf.-  ,kv./*
-";
+	qdlpb  'muoy*
+	sinag  ctherj
+	zxf.-  ,wvk/*
+  ";
 
     // 2 + w bigrams
     public static readonly string RollerCoaster4 = @"
-    .dyw'  zroum*
-    itscf  jnael/
-    ,kvpb  xhq;g-
+	wdlpf  bmuoy*
+	sinag  ctherj
+	zxkq-  /v',.-
+  ";
+    
+    // 2 
+    public static readonly string RollerCoaster5 = @"
+	wplfq  bmuoy'
+	sinak  gtherj
+	zxc,.  /dv;-*
   ";
 
     // 2 
-    public static readonly string RollerCoaster5 = @"
-	jcmpb  'luofz
-	sinad  gtherw
-	xqy.,  -kv./*";
-
-    // 2 
     public static readonly string RollerCoaster6 = @"
-	jcmpb  'luofz
-	dsina  ytherw
-	xqg.,  -kv./*
+	wplfj  bmuoq'
+	sinad  ctherj
+	zxvk/  -gy,.*
 ";
 
     public static readonly string one_trick_roll = @"
@@ -314,12 +326,10 @@ public class Keyboard
 
 
 
-
-
     const int RowSize = 11;
-
+    public string Name;
     public Key[,] Keys;
-    public Keyboard(string input)
+    public Keyboard(string input, string name)
     {
         Keys = new Key[3, RowSize];
         var rows = input
@@ -337,6 +347,7 @@ public class Keyboard
                 Keys[row, col] = new Key(rows[row][col], Fingers.Middle, 0, row, col);
             }
         }
+        Name = name;
     }
 
     public Key[]? ContainsSameRowSequence(string sequence)
@@ -362,11 +373,11 @@ public class Keyboard
 
 public enum Hand { Left, Right }
 public enum Fingers { Pinkie, Ring, Middle, Index };
-public class Stats()
+public class Stats(string name)
 {
     public Decimal Value = 0;
     public Decimal SFB = 0;
-
+    public string Name = name;
 
     public override string ToString()
     {
