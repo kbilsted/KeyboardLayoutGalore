@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title id="pageTitle">Phrase Highlighter</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+        padding: 20px;
+    }
+    .highlight {
+        background-color: #ff0; /* Yellow highlight for visibility */
+    }
+    textarea, input[type="text"], select, #output, #outputURL {
+        width: 100%;
+        height: auto;
+        font-family: 'Courier New', Courier, monospace;
+        border: 1px solid #888;
+        padding: 10px;
+        margin-top: 5px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        overflow: auto;
+    }
+    #output, #outputURL {
+        white-space: pre-wrap;
+        overflow: auto;
+        height: 150px;
+        background: #eef;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-color: #5c87b2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #3a5f8f;
+    }
+    select {
+        cursor: pointer;
+    }
+    label {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        white-space: normal; /* Allows text wrapping in the input field */
+    }
+</style>
+<script>
+const LAYOUTS = {
+    "QWERTY": "qwertyuiop\nasdfghjkl\nzxcvbnm",
+    "Dvorak": "'',.pyfgcrl\naoeuidhtns\n;qjkxbmwvz",
+    "Engram": "bpyfvmu j\nidnaset h\nclrzgow q",
+    "Colemak": "qwfpgjluy\narstdhneio\nzxcvbkm",
+    "AZERTY": "azertyuiop\nqsdfghjklm\nwxcvbn",
+    "QWERTZ": "qwertzuiop\nasdfghjkl\nyxcvbnm",
+    "Workman": "qdrwbjfup;\nashtgyneoi\nzxmcvkl,./",
+    "BÉPO": "bepoêûüè\nparistd\nqsdfghjklm\nwxcvbn",
+    "JCUKEN": "йцукенгшщзхъ\nфывапролджэ\nячсмитьбю",
+    "Neo": "xvlcwkhgfq\nuiaeo snrtd\nüöäpzybm,.j",
+    "Maltron": "qpycxbmle\narstdhneio\nzgfjvwu;k",
+    "Kinesis": "qdrwbjfup\nashtgyneoi\nzxmcvkl,."
+};
+
+
+function parseURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    const phrases = params.get('bigrams');
+    const title = params.get('title');
+    const inputText = params.get('text');
+    const layout = params.get('layout');
+
+    if (title) document.getElementById('pageTitle').textContent = decodeURIComponent(title);
+    if (inputText) document.getElementById('inputText').value = decodeURIComponent(inputText.replace(/\+/g, ' '));
+    if (layout) {
+        document.getElementById('layout').value = decodeURIComponent(layout.replace(/\+/g, ' '));
+    } else {
+        document.getElementById('layout').value = LAYOUTS["QWERTY"]; // Default layout
+    }
+
+    return phrases ? decodeURIComponent(phrases).replace(/\+/g, ' ') : "TH HE IN ER AN RE ON AT EN ND TI ES OR the and ing ion tio ent ati for her ter hat tha"; // Default phrases
+}
+
+function generateBigrams(mode) {
+    const rows = document.getElementById('layout').value.split('\n');
+    let result = [];
+    rows.forEach(row => {
+        const cleanRow = row.replace(/\s+/g, '');
+        for (let i = 0; i < cleanRow.length; i++) {
+            let range = (mode === 'closeRolling') ? 2 : 1;  // Range determines how far we look for bigrams
+            for (let j = Math.max(0, i - range); j <= Math.min(cleanRow.length - 1, i + range); j++) {
+                if (i != j) {
+                    result.push(cleanRow[i] + cleanRow[j]);  // Only unique bigrams, no need to add reverse unless specified
+                    if (mode === 'sameRow' || mode === 'closeRolling') {
+                        result.push(cleanRow[j] + cleanRow[i]);
+                    }
+                }
+            }
+        }
+    });
+    document.getElementById('bigrams').value = result.join(' ');
+    highlightPhrases();
+}
+
+function highlightPhrases() {
+    var phrases = document.getElementById('bigrams').value.toLowerCase().split(/\s+/);
+    var text = document.getElementById('inputText').value;
+
+    text = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    var highlightedText = '';
+    var lowerText = text.toLowerCase();
+    var lastPosition = 0;
+
+    for (let i = 0; i < text.length; i++) {
+        phrases.forEach(function(phrase) {
+            if (lowerText.substr(i, phrase.length) === phrase) {
+                if (i >= lastPosition) {
+                    highlightedText += text.substring(lastPosition, i); // append text before the phrase
+                    highlightedText += '<span class="highlight">' + text.substring(i, i + phrase.length) + '</span>';
+                    lastPosition = i + phrase.length; // update last position to end of the current phrase
+                }
+            }
+        });
+    }
+    highlightedText += text.substring(lastPosition); // append any remaining text
+
+    document.getElementById('output').innerHTML = highlightedText;
+}
+
+function updateURL() {
+    var phrases = document.getElementById('bigrams').value;
+    var title = document.getElementById('title').value;
+    var text = document.getElementById('inputText').value;
+    var layout = document.getElementById('layout').value;
+    var encodedPhrases = encodeURIComponent(phrases);
+    var encodedTitle = encodeURIComponent(title);
+    var encodedText = encodeURIComponent(text);
+    var encodedLayout = encodeURIComponent(layout);
+    var newURL = window.location.origin + window.location.pathname + '?bigrams=' + encodedPhrases + '&title=' + encodedTitle + '&text=' + encodedText + '&layout=' + encodedLayout;
+    document.getElementById('outputURL').textContent = newURL;
+}
+
+function copyToClipboard() {
+    const url = document.getElementById('outputURL').textContent;
+    navigator.clipboard.writeText(url).then(function() {
+        alert('URL copied to clipboard!');
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
+
+
+function changeLayout() {
+    const selectedLayout = document.getElementById('layoutsDropdown').value;
+    document.getElementById('layout').value = LAYOUTS[selectedLayout];
+    updateURL();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('bigrams').value = parseURLParams();
+    document.getElementById('title').value = document.getElementById('pageTitle').textContent;
+    highlightPhrases();
+    updateURL();
+});
+</script>
+</head>
+<body>
+<h1>Phrase Highlighter with URL Parameters</h1>
+<div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" oninput="document.getElementById('pageTitle').textContent = this.value; updateURL();" value="Phrase Highlighter">
+</div>
+<div>
+    <label for="layoutsDropdown">Select Keyboard Layout:</label>
+    <select id="layoutsDropdown" onchange="changeLayout()">
+        <option value="QWERTY">QWERTY</option>
+        <option value="Dvorak">Dvorak</option>
+        <option value="Engram">Engram</option>
+        <option value="Colemak">Colemak</option>
+        <option value="AZERTY">AZERTY</option>
+        <option value="QWERTZ">QWERTZ</option>
+        <option value="Workman">Workman</option>
+        <option value="BÉPO">BÉPO</option>
+        <option value="JCUKEN">JCUKEN</option>
+        <option value="Neo">Neo</option>
+        <option value="Maltron">Maltron</option>
+        <option value="Kinesis">Kinesis</option>
+    </select>
+</div>
+<div>
+    <label for="layout">Keyboard Layout:</label>
+    <textarea id="layout" oninput="updateURL()"></textarea>
+</div>
+<div>
+    <label for="bigrams">Enter Phrases:</label>
+    <input type="text" id="bigrams" oninput="highlightPhrases(); updateURL();">
+</div>
+<div>
+    <label for="inputText">Input Text:</label>
+    <textarea id="inputText" oninput="highlightPhrases()"></textarea>
+</div>
+<div id="output"></div>
+<div>
+    <label for="outputURL">Generated URL:</label>
+    <div id="outputURL"></div>
+</div>
+<button onclick="copyToClipboard()">Copy URL</button>
+<button onclick="generateBigrams('direct')" title="Generate bigrams from direct neighboring keys.">Copy Direct Bigrams</button>
+<button onclick="generateBigrams('sameRow')" title="Generate all combinations of keys on the same row, including both directions.">Copy Same Row Bigrams</button>
+<button onclick="generateBigrams('closeRolling')" title="Generate bigrams of keys up to 2 keys away on the same row.">Copy Close Rolling Bigrams</button>
+</body>
+</html>
