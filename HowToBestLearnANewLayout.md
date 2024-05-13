@@ -8,13 +8,22 @@ General advice
 * Memorize parts of the layout - max 5 characters at a time 
 * Memorize by typing words or shortcuts you use a lot such as `Ctrl T`, `Ctrl C`, `Ctrl V` 
 * Practice often - 5-10 mins every day
-
+* Consider changing the keyboard on your phone (nice idea but perhaps you don't get to like it)
+  * https://www.youtube.com/watch?v=RbhmVFd1iNE (explanation and iphone)
 
 <br>
 <br>
 <br>
 
 # Typing tutors notes
+
+
+## Typing drills
+
+* https://www.pairtype.com/ drill letter pairs you are bad at
+* https://problemwords.com/ drill words that you are bad at
+* https://climech.github.io/typing-practice/ programmer typing practice
+* https://ranelpadon.github.io/ngram-type/ ngram typing practice
 
 
 ## Typing games
@@ -26,7 +35,7 @@ General advice
 
 * https://www.typing.com/ - traditional exercises starting with `F-J` then `R-U`. Lots of badgets, motivational stars, XP, small information videos, etc to keep you motivated. Already at lesson 2 keys  outside the homerow is included.
 * https://www.keybr.com/  - using AI to adapt to the users performance. Sounds great, but my experience has been the AI keeps droning on the homerow letters forever and ever. 
-* ...
+* https://www.typelit.io/ - type books 
   
 
 ## Typing for "pro's"

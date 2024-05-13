@@ -6,6 +6,10 @@ The idea is that bigrams that are hard to reach you autocomplete with the magic 
 
 https://getreuer.info/posts/keyboards/alt-layouts/index.html
 
+also icelaks https://github.com/Ikcelaks/keyboard_layouts/blob/main/magic_sturdy/magic_sturdy.md
+
+
+
 Unedited notes from discussions on the "Alt keyboard layouts" discord 
 
 

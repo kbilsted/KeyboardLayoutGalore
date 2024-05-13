@@ -31,10 +31,10 @@ When first being to different keyboard layouts one is quickly overwhelmed by the
 
 
 ### Sorted homerow of selected layouts
-|Name          | | | | | | | | | | | | | | | | | | | | | | |
-|-             |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
-|Qwerty        |'|;|A| | |D| |F|G|H| |J|K|L| | | | |S| | | |
-|Dvorak        |-| |A| | |D|E| | |H|I| | | |N|O| | |S|T|U| |
+|Name          | | | | | | | | | | | | | | | | | | | | | | | |
+|-             |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+|Qwerty        |'|;|A| | |D| |F|G|H| |J|K|L| | | | |S| | | | |
+|Dvorak        |-| |A| | |D|E| | |H|I| | | |N|O| | |S|T|U| | | 
 |Colemak       |'| |A| | |D|E| | |H|I| | | |N|O| |R|S|T|
 |Three Layout  | | |A| | |D|E| | |H|I| | | |N|O| |R|S|T|
 |Hands Down Neu|,| |A|B| | |E| | |H|I|J| | |N| | |R|S|T|
@@ -42,6 +42,7 @@ When first being to different keyboard layouts one is quickly overwhelmed by the
 |Workman       |'| |A| | | |E| |G|H|I| | | |N|O| | |S|T| |Y|
 |Canary        |'| |A| |C| |E|F|G| |I| | | |N| | |R|S|T|
 
+|Canary        |'| |A| |C| |E|F|G| |I| | | |N| | |R|S|T| 
 
 Notice a great similarity among them  - of course with QWERTY being the most different to the rest.
 
@@ -192,6 +193,9 @@ a list of notes on keyboard layouts very limited [keyboard layouts notes](keyboa
   * https://jaroslaw-weber.github.io/keyfab/
 * design keyboard layouts with nice graphics http://www.keyboard-layout-editor.com/
 
+# other links
+
+* search keyboard layouts https://www.keyboard-design.com/homerow-explorer.html
 
 
 # Keyboard layering

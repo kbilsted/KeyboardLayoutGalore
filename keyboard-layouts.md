@@ -59,6 +59,7 @@ Engram is fairly similar to Dvorak making the transition from one to the other f
 ```
 
 
+
 ## APTv3
 https://github.com/Apsu/APT
 
@@ -78,3 +79,9 @@ and without the angle mod
 Source: https://github.com/jackrosenthal/threelayout
 
 layering technique and good keys for remapping tools
+
+
+## ThinQu Keyboard Layout:
+
+
+https://web.archive.org/web/20230329002424/https://microexploitation.com/2018/06/26/the-development-of-the-thinqu-keyboard-layout-factors-that-influence-typing-effort/

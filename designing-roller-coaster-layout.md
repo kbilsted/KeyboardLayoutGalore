@@ -269,20 +269,6 @@ eg "thanks", "pasted" "stops", "key"
 
 change upperrow for more bigrams, we look at the bigrams by searching for `".?(q|v|k|p|x|j|f|g|w|l|b|j|c)`
 
-p
-> right
-pe = 0.61M
-pr = 0.46M
-pt = 0.09M
-ph = 0.08M
-> left
-sp = 0.25M
-pa = 0.51M
-> home=2.0
-pl = 0.35M
-po = 0.55M
-up = 0.26M
->upperrow=1.16
 
 b
 be = 0.62M
@@ -339,6 +325,17 @@ gr = 0.27
 go = 0.26
 
 
+j
+ju = 0.08
+jo = 0.07
+je = 0.04
+
+
+
+k
+ke = 0.327M, 0.36M
+> K so low frequency we leave it
+
 
 l
 al = 1.50
@@ -352,6 +349,7 @@ ld = 0.29
 > upper=1.95
 pl = 0.316M, 0.35M
 
+
 m
 me = 1.12
 ma = 0.87
@@ -364,14 +362,30 @@ mp = 0.25
 um = 0.23
 >top 1.4
 
-w
-we = 0.52
-wi = 0.48
-wa = 0.45
-wh = 0.37
-> homerow=1.8
-ow = 0.64
- 
+
+
+
+p
+> right
+pe = 0.61M
+pr = 0.46M
+pt = 0.09M
+ph = 0.08M
+> left
+sp = 0.25M
+pa = 0.51M
+> home=2.0
+pl = 0.35M
+po = 0.55M
+up = 0.26M
+>upperrow=1.16
+
+
+q
+qe = 0.04
+qi = 0.01
+
+
 v
 ve = 1.17
 vi = 0.54
@@ -381,9 +395,18 @@ ov = 0.26
 v to homerow (v=1.05% vs W 1.68% - reduce pinky by putting W on index on V on pinky
 but more inroll with V on index..
 
-k
-ke = 0.327M, 0.36M
-> K so low frequency we leave it
+
+
+w
+we = 0.52
+wi = 0.48
+wa = 0.45
+wh = 0.37
+> homerow=1.8
+ow = 0.64
+ 
+ 
+
 
 
 y
@@ -398,6 +421,9 @@ ys = 0.16
 ny = 0.14
 > home 1.39
 
+x
+xe = 0.20
+xp = 0.06
 
 
 
@@ -533,9 +559,37 @@ and there are some strange rolls with VE, VR
 	zxpy⌫ -vk,.
 
 
+## less pinky stretch by swapping W with something less frequent
+stretching the pinky less by moving w to homerow.. v was a bad spot here but VE is more common than WE
+so we give it a try
+
+we could swap k-q it would make it more qwerty but worse stats
+
+	kdlfq bmuoj
+	sinag ctherw
+	zxpy' ;v,.-
+
+
+  
+
+ 
 
 
 
+
+
+
+
+
+
+
+
+
+
+# overall notes
+(?B<->Q) we could swap since Q is sligtly more frequent than B, and the left hand is slightly underused
+but doing this makes the bigrams for B harder 
+also more SFB AB, BY
 
 
 
