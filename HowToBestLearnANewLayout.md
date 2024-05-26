@@ -36,7 +36,7 @@ General advice
 * https://www.typing.com/ - traditional exercises starting with `F-J` then `R-U`. Lots of badgets, motivational stars, XP, small information videos, etc to keep you motivated. Already at lesson 2 keys  outside the homerow is included.
 * https://www.keybr.com/  - using AI to adapt to the users performance. Sounds great, but my experience has been the AI keeps droning on the homerow letters forever and ever. 
 * https://www.typelit.io/ - type books 
-  
+* https://adamgradzki.com/keyzen3/   
 
 ## Typing for "pro's"
 

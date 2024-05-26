@@ -40,8 +40,6 @@ When first being to different keyboard layouts one is quickly overwhelmed by the
 |Hands Down Neu|,| |A|B| | |E| | |H|I|J| | |N| | |R|S|T|
 |Engram        |,|.|A| |C| |E| | |H|I| | | |N| |Q| |S|T|
 |Workman       |'| |A| | | |E| |G|H|I| | | |N|O| | |S|T| |Y|
-|Canary        |'| |A| |C| |E|F|G| |I| | | |N| | |R|S|T|
-
 |Canary        |'| |A| |C| |E|F|G| |I| | | |N| | |R|S|T| 
 
 Notice a great similarity among them  - of course with QWERTY being the most different to the rest.

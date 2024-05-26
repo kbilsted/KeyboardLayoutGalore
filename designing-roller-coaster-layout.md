@@ -563,18 +563,42 @@ and there are some strange rolls with VE, VR
 stretching the pinky less by moving w to homerow.. v was a bad spot here but VE is more common than WE
 so we give it a try
 
-we could swap k-q it would make it more qwerty but worse stats
+also p on the low row breaks many flows or maybe im passing judgement too soon
 
-	kdlfq bmuoj
-	sinag ctherw
-	zxpy' ;v,.-
+we dont want k in the upper corner since it is a very frequent letter in nordic languages
 
+	bdlfy pmuoq'
+	sinag ctherj
+	zxv*⌫ -wk,.
 
   
 
- 
+
+----
+
+starting all over.. almost..
+ve 1.11
+vo 0.24
+wo 0.60
+we 0.49
+wh 0.35
+w on right center is more probable than on the right
 
 
+vi 0.51
+va 0.35
+wi 0.45
+wa 0.42
+wn 0.09
+w on left center is more probable than on the right..
+
+so W is most probable both places - but we have va=SFB=0.35 with v on the left. V is more "natural" on the left since it is the same as qwerty almost.. 
+we can swap.. but then we have SFB AW - so it really makes no difference
+we choose to have ve close since it has the score of 1.11 
+
+	qdlfy  bmuoj
+	sinaw  vther
+	zpxg'  ;ck,.
 
 
 
@@ -683,39 +707,39 @@ stats
 	new ("ou", 1.177M, 1.18M),
 	new ("uo", 0.006M, 1.18M),
 
-
-stats https://norvig.com/mayzner.html
-
-	BI  COUNT   PERCENT graph     LETTER  COUNT   PERCENT
-	TH  100.3 B (3.56%)                E 445.2 B  12.49%         
-	HE   86.7 B (3.07%)                T 330.5 B   9.28% 
-	IN   68.6 B (2.43%)                A 286.5 B   8.04% 
-	ER   57.8 B (2.05%)                O 272.3 B   7.64% 
-	AN   56.0 B (1.99%)                I 269.7 B   7.57% 
-	RE   52.3 B (1.85%)                N 257.8 B   7.23% 
-	ON   49.6 B (1.76%)                S 232.1 B   6.51% 
-	AT   41.9 B (1.49%)                R 223.8 B   6.28% 
-	EN   41.0 B (1.45%)                H 180.1 B   5.05% 
-	ND   38.1 B (1.35%)                L 145.0 B   4.07% 
-	TI   37.9 B (1.34%)                D 136.0 B   3.82% 
-	ES   37.8 B (1.34%)                C 119.2 B   3.34% 
-	OR   36.0 B (1.28%)                U  97.3 B   2.73% 
-	TE   34.0 B (1.20%)                M  89.5 B   2.51% 
-	OF   33.1 B (1.17%)                F  85.6 B   2.40% 
-	ED   32.9 B (1.17%)                P  76.1 B   2.14% 
-	IS   31.8 B (1.13%)                G  66.6 B   1.87% 
-	IT   31.7 B (1.12%)                W  59.7 B   1.68% 
-	AL   30.7 B (1.09%)                Y  59.3 B   1.66% 
-	AR   30.3 B (1.07%)                B  52.9 B   1.48% 
-	ST   29.7 B (1.05%)                V  37.5 B   1.05% 
-	TO   29.4 B (1.04%)                K  19.3 B   0.54% 
-	NT   29.4 B (1.04%)                X   8.4 B   0.23% 
-	NG   26.9 B (0.95%)                J   5.7 B   0.16% 
-	SE   26.3 B (0.93%)                Q   4.3 B   0.12% 
-	HA   26.1 B (0.93%)                Z   3.2 B   0.09% 
-	AS   24.6 B (0.87%)  
-	OU   24.5 B (0.87%)  
-	IO   23.5 B (0.83%)  
+ 
+stats https://norvig.com/mayzner.html                           https://spjdrpedia.dk/wiki/Frekvensanalyse
+                                                                danish
+	BI  COUNT   PERCENT graph     LETTER  COUNT   PERCENT          
+	TH  100.3 B (3.56%)                E 445.2 B  12.49%        e	16.70%	    
+	HE   86.7 B (3.07%)                T 330.5 B   9.28%        r	7.61%	
+	IN   68.6 B (2.43%)                A 286.5 B   8.04%        n	7.55%	
+	ER   57.8 B (2.05%)                O 272.3 B   7.64%        d	7.24%	
+	AN   56.0 B (1.99%)                I 269.7 B   7.57%        t	7.03%	
+	RE   52.3 B (1.85%)                N 257.8 B   7.23%        a	6.01%	
+	ON   49.6 B (1.76%)                S 232.1 B   6.51%        s	5.67%	
+	AT   41.9 B (1.49%)                R 223.8 B   6.28%        i	5.55%	
+	EN   41.0 B (1.45%)                H 180.1 B   5.05%        l	4.85%	
+	ND   38.1 B (1.35%)                L 145.0 B   4.07%        g	4.56%	
+	TI   37.9 B (1.34%)                D 136.0 B   3.82%        o	4.14%	
+	ES   37.8 B (1.34%)                C 119.2 B   3.34%        m	3.40%	
+	OR   36.0 B (1.28%)                U  97.3 B   2.73%        k	3.07%	
+	TE   34.0 B (1.20%)                M  89.5 B   2.51%        v	2.88%	
+	OF   33.1 B (1.17%)                F  85.6 B   2.40%        f	2.27%	
+	ED   32.9 B (1.17%)                P  76.1 B   2.14%        h	1.88%	
+	IS   31.8 B (1.13%)                G  66.6 B   1.87%        u	1.85%	
+	IT   31.7 B (1.12%)                W  59.7 B   1.68%        b	1.41%	
+	AL   30.7 B (1.09%)                Y  59.3 B   1.66%        p	1.33%	
+	AR   30.3 B (1.07%)                B  52.9 B   1.48%        j	1.11%	
+	ST   29.7 B (1.05%)                V  37.5 B   1.05%        å	1.03%
+	TO   29.4 B (1.04%)                K  19.3 B   0.54%        æ	0.93%	
+	NT   29.4 B (1.04%)                X   8.4 B   0.23%        ø	0.84%	
+	NG   26.9 B (0.95%)                J   5.7 B   0.16%        y	0.72%	
+	SE   26.3 B (0.93%)                Q   4.3 B   0.12%        c	0.29%	
+	HA   26.1 B (0.93%)                Z   3.2 B   0.09%        w	0.02%	
+	AS   24.6 B (0.87%)                                         x	0.02%	
+	OU   24.5 B (0.87%)                                         z	0.02%	
+	IO   23.5 B (0.83%)                                         q	0.01%	
 	LE   23.4 B (0.83%)  
 	VE   23.3 B (0.83%)  
 	CO   22.4 B (0.79%)  
@@ -750,6 +774,41 @@ trigrams
 	tio 0.548
 	hat 0.489
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
