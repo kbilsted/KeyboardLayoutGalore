@@ -11,7 +11,7 @@ var bigrams = new Corpus().GetEnglishBigrams()
     .ToArray();
 
 
-int maxhistory = 2500000;//00;
+int maxhistory = 500000;//00;
 int half = maxhistory / 2;
 int quart = half / 2;
 
@@ -24,15 +24,47 @@ var keb = new keyb("qwertyuiopasdfghjkl'zxcvbnm-,.;");
 //Console.WriteLine(keb.layout);
 //Console.WriteLine(keb.TypeText(Corpus.Alice));
 //Console.WriteLine("----");
-keb = new keyb("qdlypwmoufsinagctherbzxvj,'k;.-");
+keb = new keyb("bdlyqjfouwsinagcther'zxmp;-kv,.");
 keb.Print();
 Console.WriteLine(keb.layout);
-Console.WriteLine(keb.TypeText(Corpus.Alice));
+Console.WriteLine(keb.TypeText(Corpus.FullAlice));
 Console.WriteLine("----");
-keb = new keyb("qdlfpwmuoysinagctherbzxvj;'k,.-"); 
+
+keb = new keyb("bylwq-fuovdinagctser'zxmk;jph,.");
 keb.Print();
 Console.WriteLine(keb.layout);
-Console.WriteLine(keb.TypeText(Corpus.Alice));
+Console.WriteLine(keb.TypeText(Corpus.FullAlice));
+Console.WriteLine("----");
+
+Console.WriteLine("ergoroller");
+// ergo roller
+keb = new keyb("qdlf'jmuoysinagctherbzxwk;-pv,.");
+keb.Print();
+Console.WriteLine(keb.layout);
+Console.WriteLine(keb.TypeText(Corpus.FullAlice));
+Console.WriteLine("----");
+
+// less ergo roller
+Console.WriteLine($"less ergo");
+keb = new keyb("qdlf'pmuoysinagctherbzxwk;-jv,.");
+keb.Print();
+Console.WriteLine(keb.layout);
+Console.WriteLine(keb.TypeText(Corpus.FullAlice));
+Console.WriteLine("----");
+
+//keb = new keyb("wlypbzfou;crstgmneia'qjvdkxh-,.");// canary
+//keb.Print();
+//Console.WriteLine(keb.layout);
+//Console.WriteLine(keb.TypeText(Corpus.FullAlice));
+//Console.WriteLine("----");
+
+
+
+keb = new keyb("pofmwjyldqrehtcuanisgzx-v;'kb,.");
+keb.Print();
+Console.WriteLine(keb.layout);
+Console.WriteLine(keb.TypeText(Corpus.FullAlice));
+Console.WriteLine("----");
 //!
 
 //qdlyp wmouf
@@ -42,10 +74,10 @@ Console.WriteLine(keb.TypeText(Corpus.Alice));
 //    score: 92088
 //score: 9223372036854775807
 //add("qdlypwmoufsinagctherbzxvj,'k;.-"); // 92088
+//add("wformuplybsehtcganidv'k:j-z.q,x"); // 94085
 
 //add("qwertyuiopasdfghjkl'zxcvbnm-,.;");
 
-add("qdlfpwmuoysinagctherbzxvj;'k,.-");
 //add(";qkz.,'x-jshetciandgvyblpurmofw"); // 77040
 
 //add(",fpmkbwylgcsorehtinad-:qu'vz.xj");
@@ -55,11 +87,9 @@ add("qdlfpwmuoysinagctherbzxvj;'k,.-");
 //add("pfoujzy.,:thersdinalwmkq-v'gcbx"); // 506,31691320320
 //add("foubw'pmgqrehtsdinalcvzkx:.,yj-"); // 1174,8616992385007
 //add("qgmp'wbuoflanidstherc,xy-.zkvj"); // 1176,1711586028005
-//add("xgmpqybuoflanidstherc.zw',-kvj;"); // 1396,6772793288003
 //add("fdcg.jkmpvuonialthersyqw;-,zb'x"); // 987321066
 //add(",winp;ouja'dthksrelqzmcgbxy-f.v"); // 4414046921
 add("pmervboufqkcthsaind,xz-w'jygl.:"); // 4833538685
-//add("wdlfybmuoqsinagctherjzxp;,-.v'k");
 //add("'x.thjvgkqdyserlanic:,-mpwzfoub"); // 16666288
 //add("bumpwylacvserofhtindgx'zk-qj.:,"); // 18574073
 //add(",m;wkjpabghtinduoresy.xqfl'czv-"); // 17055664
@@ -90,14 +120,18 @@ void add(string layout)
 
 void ReBrain(int cellsToKeep)
 {
+    if (brain.Count == 0)
+        throw new Exception("empty brain!");
+
     brain = brain.Take(cellsToKeep).ToList();
+    brain.Add(brain[0].Mutate(111));
 
     while (brain.Count < half)
     {
         int m = brain.Count;
         for (int i = 0; i < m; i++)
         {
-            brain.Add(brain[i].Mutate(2));
+            brain.Add(brain[i].Mutate(1));
         }
     }
 }

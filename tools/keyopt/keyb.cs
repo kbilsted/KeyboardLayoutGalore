@@ -18,7 +18,7 @@
     public static int[] ColByPos =
     [
         1, 2, 3, 4, 5, /**/ 6, 7, 8, 9, 10, //
-        1, 2, 3, 4, 5, /**/ 6, 7, 8, 9, 10, 14, //
+        1, 2, 3, 4, 5, /**/ 6, 7, 8, 9, 10, 11, //
         1, 2, 3, 4, 5, /**/ 6, 7, 8, 9, 10,
     ];
     public static int[] ColByPosOrg =
@@ -105,38 +105,43 @@
         decimal charFreq1 = charfreq[g.Value[0]];
         decimal charFreq2 = charfreq[g.Value[1]];
 
-        if (row1 != row2)
-            return 0;
 
         if ((col1 is 5 or 6) && charFreq1 > 3.5m)
-            return 0;
+            return -10;
         if ((col2 is 5 or 6) && charFreq2 > 3.5m)
-            return 0;
+            return -10;
 
-        if ((col1 is 14) && charFreq1 > 2m)
-            return 0;
-        if ((col2 is 14) && charFreq2 > 2m)
-            return 0;
+        if ((col1 is 11) && charFreq1 > 2m)
+            return -10;
+        if ((col2 is 11) && charFreq2 > 2m)
+            return -10;
 
 
         var result = g.FreqSquared;
 
         //        result = result * FingerStrengthByPos[index1] * FingerStrengthByPos[index2];
+        int rowDiff = Math.Abs(row1 - row2);
+        float colDiff = Math.Abs(col1 - col2);
+
 
         if (f1 != f2)
-            result *= 3;
+            result *= 2;
 
-        float colDiff = Math.Abs(col1 - col2);
-        if (colDiff > 1)
-            colDiff = colDiff - 0.5f;
+        if(rowDiff==0 )
+            result *= 2;
+        if (rowDiff == 0&& row1== 2)
+            result *= 2;
+
+        //if (colDiff > 1)
+        //    colDiff = colDiff - 0.5f;
 
         if (colDiff != 0)
             result = (int)(result / colDiff);
 
-        int rowDiff = Math.Abs(row1 - row2);
-        if (colDiff == 0 && rowDiff == 1)
-            return -result / 4;
-        if (colDiff == 0 && rowDiff == 2)
+        bool indexsamefinger = (f1 == Fingers.LIndex && f2 == Fingers.LIndex) || (f1 == Fingers.RIndex && f2 == Fingers.RIndex);
+        if ((colDiff == 0 ||indexsamefinger)  && rowDiff == 1)
+            return -result / 4; 
+        if ((colDiff == 0||indexsamefinger) && rowDiff == 2)
             return -result / 2;
 
 
@@ -295,7 +300,7 @@
 
     public Score TypeText(string text)
     {
-        text = text.Replace(" ", "");
+        text = text.Replace(" ", "").ToLower();
 
         var score = new Score(new Dictionary<(int colDelta, int rowDelta), int>(), 0);
 
