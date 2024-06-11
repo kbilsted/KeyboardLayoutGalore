@@ -30,9 +30,9 @@
 
     public static int[] FingerStrengthByPos =
     [
-        02, 03, 04, 05, 03, /**/ 03, 05, 04, 03, 02, //
-        03, 04, 05, 07, 04, /**/ 04, 07, 05, 04, 03, 01, //
-        01, 02, 03, 05, 03, /**/ 03, 05, 03, 02, 01,
+        05, 13, 22, 28, 02, /**/ 02, 28, 22, 13, 05, //
+        09, 24, 32, 34, 04, /**/ 04, 34, 32, 24, 09, 01, //
+        07, 02, 09, 24, 01, /**/ 01, 24, 09, 02, 07,
     ];
 
     public static Hand[] HandByPos =
@@ -89,6 +89,64 @@
 
     private Dictionary<char, decimal> charfreq = Corpus.Getmonograms();
 
+
+
+
+    long ScoreBigram_by_fingerpos_and_handalternation(NGram g)
+    {
+        var gram = g.Value;
+        var index1 = layout.IndexOf(gram[0]);
+        var index2 = layout.IndexOf(gram[1]);
+        int row1 = RowByPos[index1];
+        int row2 = RowByPos[index2];
+        int col1 = ColByPos[index1];
+        int col2 = ColByPos[index2];
+        Fingers f1 = FingerByPos[index1];
+        Fingers f2 = FingerByPos[index2];
+        Hand h1 = HandByPos[index1];
+        Hand h2 = HandByPos[index2];
+        decimal charFreq1 = charfreq[g.Value[0]];
+        decimal charFreq2 = charfreq[g.Value[1]];
+
+        if ((col1 is 5 or 6) && charFreq1 > 3.5m)
+            return -10;
+        if ((col2 is 5 or 6) && charFreq2 > 3.5m)
+            return -10;
+
+        if ((col1 is 11) && charFreq1 > 2m)
+            return -10;
+        if ((col2 is 11) && charFreq2 > 2m)
+            return -10;
+
+        if (row1 != 2 && gram[0] == 'n') return -100;
+        if (row2 != 2 && gram[1] == 'n') return -100;
+        if (row1 != 2 && gram[0] == 'e') return -100;
+        if (row2 != 2 && gram[1] == 'e') return -100;
+        if (row1 != 2 && gram[0] == 'r') return -100;
+        if (row2 != 2 && gram[1] == 'r') return -100;
+
+        var result = g.FreqSquared;
+
+        if (f1 == f2)
+            result = -500;
+
+        result *= FingerStrengthByPos[index1];
+        result *= FingerStrengthByPos[index2];
+
+        int rowDiff = Math.Abs(row1 - row2);
+        float colDiff = Math.Abs(col1 - col2);
+
+        if (rowDiff == 0)
+            result *= 16;
+        if (rowDiff == 1)
+            result *= 2;
+
+        if (colDiff == 1)
+            result *= 4;
+
+        return result;
+    }
+
     long ScoreBigram(NGram g)
     {
         var gram = g.Value;
@@ -119,17 +177,18 @@
 
         var result = g.FreqSquared;
 
+        result *= (int)(charFreq1 * FingerStrengthByPos[index1]);
+        result *= (int)(charFreq2 * FingerStrengthByPos[index2]);
+
         //        result = result * FingerStrengthByPos[index1] * FingerStrengthByPos[index2];
         int rowDiff = Math.Abs(row1 - row2);
         float colDiff = Math.Abs(col1 - col2);
 
 
         if (f1 != f2)
-            result *= 2;
+            result *= 5;
 
-        if(rowDiff==0 )
-            result *= 2;
-        if (rowDiff == 0&& row1== 2)
+        if (rowDiff == 0)
             result *= 2;
 
         //if (colDiff > 1)
@@ -139,9 +198,9 @@
             result = (int)(result / colDiff);
 
         bool indexsamefinger = (f1 == Fingers.LIndex && f2 == Fingers.LIndex) || (f1 == Fingers.RIndex && f2 == Fingers.RIndex);
-        if ((colDiff == 0 ||indexsamefinger)  && rowDiff == 1)
-            return -result / 4; 
-        if ((colDiff == 0||indexsamefinger) && rowDiff == 2)
+        if ((colDiff == 0 || indexsamefinger) && rowDiff == 1)
+            return -result / 4;
+        if ((colDiff == 0 || indexsamefinger) && rowDiff == 2)
             return -result / 2;
 
 

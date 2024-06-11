@@ -1,5 +1,23 @@
 ﻿Console.WriteLine("keyboard layouter v1.0!");
 
+
+Console.WriteLine(string.Join("\n",
+new Corpus().GetMonoGrams(Corpus.Top8KWords)
+.OrderByDescending(x => x.Value.Freq)
+.Select(x => $"{x.Key,12}\t{x.Value.Count,8}\t{x.Value.Freq}")));
+
+
+Console.WriteLine(string.Join("\n",
+ new Corpus().GetNgrams(Corpus.Top8KWords,2)
+    .OrderByDescending(x => x.Value.Freq)
+.Select(x => $"{x.Key,12}\t{x.Value.Count,8}\t{x.Value.Freq}")));
+
+
+
+Console.ReadLine();
+
+
+
 var bigrams = new Corpus().GetEnglishBigrams()
     .Where(x => !x.Value.Contains('?'))
     .Where(x => !x.Value.Contains('!'))
@@ -73,27 +91,30 @@ Console.WriteLine("----");
 
 //    score: 92088
 //score: 9223372036854775807
-//add("qdlypwmoufsinagctherbzxvj,'k;.-"); // 92088
-//add("wformuplybsehtcganidv'k:j-z.q,x"); // 94085
+add("qdlypwmoufsinagctherbzxvj,'k;.-"); // 92088
 
-//add("qwertyuiopasdfghjkl'zxcvbnm-,.;");
 
-//add(";qkz.,'x-jshetciandgvyblpurmofw"); // 77040
 
-//add(",fpmkbwylgcsorehtinad-:qu'vz.xj");
-//add("qcalmwgfykstehriondp'-b,vxzju.:");
-//add("pwofmyulbzstehriandjx-.,kv'gcq:"); // 888,837635905
-//add("'vermpdcx.,sthuoinalw-zbyqjgfk:"); // 462,5302052172
-//add("pfoujzy.,:thersdinalwmkq-v'gcbx"); // 506,31691320320
-//add("foubw'pmgqrehtsdinalcvzkx:.,yj-"); // 1174,8616992385007
-//add("qgmp'wbuoflanidstherc,xy-.zkvj"); // 1176,1711586028005
-//add("fdcg.jkmpvuonialthersyqw;-,zb'x"); // 987321066
-//add(",winp;ouja'dthksrelqzmcgbxy-f.v"); // 4414046921
+add("wformuplybsehtcganidv'k:j-z.q,x"); // 94085
+
+add("qwertyuiopasdfghjkl'zxcvbnm-,.;");
+
+add(";qkz.,'x-jshetciandgvyblpurmofw"); // 77040
+
+add(",fpmkbwylgcsorehtinad-:qu'vz.xj");
+add("qcalmwgfykstehriondp'-b,vxzju.:");
+add("pwofmyulbzstehriandjx-.,kv'gcq:"); // 888,837635905
+add("'vermpdcx.,sthuoinalw-zbyqjgfk:"); // 462,5302052172
+add("pfoujzy.,:thersdinalwmkq-v'gcbx"); // 506,31691320320
+add("foubw'pmgqrehtsdinalcvzkx:.,yj-"); // 1174,8616992385007
+add("qgmp'wbuoflanidstherc,xy-.zkvj"); // 1176,1711586028005
+add("fdcg.jkmpvuonialthersyqw;-,zb'x"); // 987321066
+add(",winp;ouja'dthksrelqzmcgbxy-f.v"); // 4414046921
 add("pmervboufqkcthsaind,xz-w'jygl.:"); // 4833538685
-//add("'x.thjvgkqdyserlanic:,-mpwzfoub"); // 16666288
-//add("bumpwylacvserofhtindgx'zk-qj.:,"); // 18574073
-//add(",m;wkjpabghtinduoresy.xqfl'czv-"); // 17055664
-//add("ykcubmofwgsinalderthv;'.zqxp-,j"); // 15415197
+add("'x.thjvgkqdyserlanic:,-mpwzfoub"); // 16666288
+add("bumpwylacvserofhtindgx'zk-qj.:,"); // 18574073
+add(",m;wkjpabghtinduoresy.xqfl'czv-"); // 17055664
+add("ykcubmofwgsinalderthv;'.zqxp-,j"); // 15415197
 
 
 //vbylp muofw
@@ -102,11 +123,11 @@ add("pmervboufqkcthsaind,xz-w'jygl.:"); // 4833538685
 
 //score: 1221383
 //score: 9223372036854775807
-//add("vbylpmuofwsithcderang'-,.xk;qjz"); // 1221383
+add("vbylpmuofwsithcderang'-,.xk;qjz"); // 1221383
 
 
 Console.WriteLine("press any key...");
-Console.ReadKey();
+//Console.ReadKey();
 
 ReBrain(brain.Count);
 
@@ -169,7 +190,7 @@ while (true)
 
     Console.Write(2);
 
-    if (max < brain[0].Score(bigrams)||countNoChange==0)
+    if (max < brain[0].Score(bigrams) || countNoChange == 0)
     {
         Console.Clear();
         Console.SetCursorPosition(0, 0);

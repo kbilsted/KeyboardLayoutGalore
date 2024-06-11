@@ -596,10 +596,82 @@ so W is most probable both places - but we have va=SFB=0.35 with v on the left. 
 we can swap.. but then we have SFB AW - so it really makes no difference
 we choose to have ve close since it has the score of 1.11 
 
+also we more G down so it mirrors the pattern A-N-D when typing I-N-G
+
 	qdlfy  bmuoj
 	sinaw  vther
 	zpxg'  ;ck,.
 
+C on the low row was a bad idea - too much stretching
+
+
+
+## Moving j-b-q closer together to make room for y
+
+B and Q uses the U the most. Most frequent bigram of b*, q* , j* is "BE" hence B must be easily reachable and 
+hence not on the right pinky. Also B is placed on the QWERTY-Y positiion which on a staggered keyboard is the worst spot
+
+P is on the home row since it gives a nice flow when typing - perhaps also because fingers are not trained to using the qwerty-x key and hence placing P there was odd
+
+	bdlfy  jmuoq
+	sinap  cther'
+	zxvg/  ;wk,.
+
+
+only thing i dont like now i C - it breaks the rythm often during typing
+
+
+# moving C to upper
+
+much more fluent
+
+	bdlfy  jcuoq
+	sinap  vther'
+	zxmg/  ;wk,.
+
+
+# engram was right
+after some more study i think the engram philosophy is correct. the two innermost rows are not 
+comfortable to type. perhaps even the top pinky rows are even worse than bottom pinky rows! 
+
+this layout is really nice to type on. it is really easy to reach the letters Y,F,C,Q,G
+
+
+there are however some few things not working! 
+
+	bdlyx  jfuow
+	sinav  pther'
+	zkmg;  *c,.q
+
+* the OW is too hard
+* the M and K are not great at the bottom - perhaps my hands are not trained enough for them to be there 
+
+
+moving the more frequent keys to the stronger fingers. most central positions are homerow + fglm
+
+moving , and . around to give room for keys 
+L<->F
+Y<->C
+X<->Q
+M<->P
+
+	bdcfq  kluoy
+	sinax  wther
+	z,pg-  .mv.j
+
+
+
+# breaking the bigam is + an
+perhaps we had run into a local maximum in terms of the layot.
+the bigrams ING, AND and FOR combines with the bigrams IS and AN severily 
+limited our options for further discovery. But a simple permutation
+opens up for many wonderful new opportunities
+
+the current layout has a very low SFB of 1.08  
+
+	qpldb  kfuoy
+	ainsc  wther
+	.,xg;  jmv/z
 
 
 
@@ -609,18 +681,12 @@ we choose to have ve close since it has the score of 1.11
 
 
 
-
-# overall notes
-(?B<->Q) we could swap since Q is sligtly more frequent than B, and the left hand is slightly underused
-but doing this makes the bigrams for B harder 
-also more SFB AB, BY
-
-
+..........................
+older notes and ideas
 
 # simulating a magic key with T
 T is a magic key that types "the" this removes the need for H on 
 the home row since it becomes rarely used. and bigram "TH" is only a 21th spot 
-
 
 	qdlfy *mpuj/
 	sinag  ctoerb
