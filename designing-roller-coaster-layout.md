@@ -307,10 +307,13 @@ rd = 0.27
 
 
 f
-of = 1.34
+of = 1.50
+fu = 0.12
 >move f to upper
-fi = 0.53
-fe = 0.38
+fi = 0.50
+fe = 0.36
+fr = 0.28
+fa = 0.23
 > homerow=0.9
 
 
@@ -360,7 +363,9 @@ ms = 0.13
 om = 0.92
 mp = 0.25
 um = 0.23
->top 1.4
+my = 0.11
+mb = 0.08
+>top 1.59
 
 
 
@@ -667,16 +672,55 @@ the bigrams ING, AND and FOR combines with the bigrams IS and AN severily
 limited our options for further discovery. But a simple permutation
 opens up for many wonderful new opportunities
 
-the current layout has a very low SFB of 1.08  
+the current layout has a very low SFB of 1.04 
 
 	qpldb  kfuoy
 	ainsc  wther
-	.,xg;  jmv/z
+	.,xgz  ;mv/j
+
+
+# moving w for comfort 
+moving w to an easier spot. this in turn moves k to a better spot too
+we also swap j and x. this gives more rolls to both.
+sfb 1.06
+
+
+	qpldb  jfuoy
+	ainsc  kther
+	.,wgz  ;mv/x
 
 
 
 
 
+# OPTIONAL moving y away from pinky
+hard to do fast typing with YOU, also made it hard to type RY and EY 
+
+also z is placed better on a staggered keyboard 1.12
+
+	qpldy  bfuoj
+	ainsc  kther
+	.,wg;  zmv/x
+
+
+
+
+x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-xx-x-x-
+
+lowest sfb.. we can achieve below 1% sfb but i think it compromises typing comfort
+
+SFB 0.94
+	qpldb  kguoy
+	ainsc  wther
+	.,xfz  ;mv'j
+
+
+
+x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-xx-x-x-
+
+x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-xx-x-x-
+
+x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-xx-x-x-
 
 
 

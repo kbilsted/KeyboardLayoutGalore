@@ -290,16 +290,16 @@ public class Keyboard
     
     // 2 
     public static readonly string RollerCoaster5 = @"
-	wplfq  bmuoy'
-	sinak  gtherj
-	zxc,.  /dv;-*
-  ";
+	qpldy  bwuox'
+	ainsc  kther;
+	.,fgz  -mv*j/
+";
 
     // 2 
     public static readonly string RollerCoaster6 = @"
-	wplfj  bmuoq'
-	sinad  ctherj
-	zxvk/  -gy,.*
+	qpldb  zfuoy'
+	ainsc  kther;
+	.,wgx  -mv*j/
 ";
 
     public static readonly string one_trick_roll = @"
