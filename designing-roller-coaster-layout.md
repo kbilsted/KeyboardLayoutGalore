@@ -1,3 +1,53 @@
+# The rollercoaster keyboard layout 
+
+The Roller Coaster keyboard layout is a new layout that emphaises on bringing the fun into typing.
+
+The design philosophy of the layout is that we get the most joy out of typing letter that are placed on the keyboard to the left or right of the currently pressed key. The closer the two keys are to eachother, the more we enjoy it. Thus by induction, if it is nice to type two letters close to each other, it is nicer to type with a layout where all keys exhibit this property! Switching rows is not preferable, unless the next key is placed diagonally (one to the side and one down/up).  From well-established character frequency analysis, we then let the most frequent bigrams and trigrams to form the layout.  
+
+Modern layouts take a different approach. Vovels and consonants are placed on opposite sides. This forces continually alternation of hands while typing. A principle formulated by Dvorak in 1936. Since common trigrams involve both consonants and vowels, keeping most consonants away from the vowels minimizes one-handed trigrams. This separation also makes it easier to achieve very low same finger bigrams. Personlly, I think one handed trigrams are fun to type and should be embraced rather than avoided.
+
+Since this is so different to any of the other layouts out there, what we are doing is either ingenious or borderline crazy! Time will tell.
+
+Now, there are a number of other factors in determining whether a layout is comfortable to type on. Most notable are
+
+* Rolls and hand alternation
+* Finger strength - placing most frequent letters on the strongest fingers 
+* Same finger bigraam - reduce the situation where the same finger is used twice in a row 
+* Lateral movement - reduce the amount of lateral/horizontal movement 
+* Computer assisted keyboard analysis
+* Overall feel 
+
+We will go through each of these after introducing the layout 
+
+
+## The layout 
+
+The layout as I use it day-to-day is what we present here, we have alternatives presented later with lower same finger bigrams, or more bigram rolls, respectively. See appendix.
+
+    qpldy  bfuoj
+	ainsc  kther
+	.,wgz  -mv;x
+	
+ 
+
+
+While there are other factors that come into play, the emphasis on rolls have a direct impact on alternations between hands. As documented in https://docs.google.com/document/d/1_a5Nzbkwyk1o0bvTctZrtgsee9jSP-6I0q3A0_9Mzm0/edit too little hands alternation may lead to very long same hand sequences. Judging from  the existing modern layouts (like the onces sited in the link) alternation have been a priority. Perhaps because it makes it easier to reduce same finger bigrams. 
+
+For a long time we did not pay much attention to reducing same finger bigrams - mostly because we wanted to explore and experiment with high rolls. This culminated with version 1 of the roller coaster layout.
+
+
+There are a number of other factoer but we get back to those in a moment. 
+
+
+If placing keys often used to
+
+They are fun to type because the they are 
+ 
+
+Take a second to reflect on what series of keys you enjoy typing on a QWERTY layout. For me is When reflecting on v
+
+
+
 # Work journal for the Roller Coaster layout
 This page journals the development of the layout, perhaps mostly interesting too me on my journey. For motivations for learning the layout see xxx.
 
