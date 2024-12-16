@@ -1,0 +1,60 @@
+
+;qkz.  ,'x-j
+shetc  iandgv
+yblpu  rmofw
+
+score: 77040
+score: 9223372036854775807
+add(";qkz.,'x-jshetciandgvyblpurmofw"); // 77040
+
+
+
+
+finger strength
+
+
+qkcub  mofwx
+sinal  derthg
+j.ypz  'v-,;
+
+score: 15411826
+score: 9223372036854775807
+add("qkcubmofwxsinalderthgj.ypz'v-,;"); // 15411826
+
+
+
+
+cwfou  bpmz'
+htred  lanisk
+jqv-,  gyx;.
+
+score: 15385903
+score: 9223372036854775807
+add("cwfoubpmz'htredlaniskjqv-,gyx;."); // 15385903
+
+
+same hand optimization
+
+-xj',  qkz;.
+dgnic  thaser
+vbylp  uwmof
+
+score: 130628
+score: 9223372036854775807
+add("-xj',qkz;.dgnicthaservbylpuwmof"); // 130628
+
+
+
+fjwby  loump
+cding  aserth
+.kz-;  v,q'x
+
+score: 129351
+score: 9223372036854775807
+add("fjwbyloumpcdingaserth.kz-;v,q'x"); // 129351
+
+
+
+
+
+
